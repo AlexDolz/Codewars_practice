@@ -178,3 +178,42 @@ const capitalize = s => {
 console.log(capitalize('abcdef')); // ['AbCdEf', 'aBcDeF']
 console.log(capitalize('codewars')); // ['CoDeWaRs', 'cOdEwArS']
 console.log(capitalize('codewarriors')); // ['CoDeWaRrIoRs', 'cOdEwArRiOrS']
+
+// **************************** Nr 6 ******************************************
+
+// Given a two-dimensional array of integers, return the flattened version of the array with all the integers in the sorted (ascending) order.
+
+// Example:
+
+// Given [[3, 2, 1], [4, 6, 5], [], [9, 7, 8]], your function should return [1, 2, 3, 4, 5, 6, 7, 8, 9].
+
+const flattenAndSort = array => {
+  return array.flat().sort((a, b) => a - b);
+};
+
+console.log(
+  flattenAndSort([
+    [3, 2, 1],
+    [7, 9, 8],
+    [6, 4, 5],
+  ])
+);
+console.log(flattenAndSort([[1, 3, 5], [100], [2, 4, 6]]));
+
+// ************************** Nr 7 ********************************************
+
+// Given a non-negative integer n, write a function to_binary/ToBinary which returns that number in a binary format.
+
+// to_binary(1)  /* should return 1 */
+// to_binary(5)  /* should return 101 */
+// to_binary(11) /* should return 1011 */
+
+const toBinary = n => {
+  return +n.toString(2);
+};
+
+console.log(toBinary(1));
+console.log(toBinary(2));
+console.log(toBinary(3));
+console.log(toBinary(5));
+console.log(toBinary(11));

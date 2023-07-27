@@ -217,3 +217,106 @@ console.log(toBinary(2));
 console.log(toBinary(3));
 console.log(toBinary(5));
 console.log(toBinary(11));
+
+// ********************************* Nr 8 *********************************
+// Trolls are attacking your comment section!
+
+// A common way to deal with this situation is to remove all of the vowels from the trolls' comments, neutralizing the threat.
+
+// Your task is to write a function that takes a string and return a new string with all vowels removed.
+
+// For example, the string "This website is for losers LOL!" would become "Ths wbst s fr lsrs LL!".
+
+// Note: for this kata y isn't considered a vowel.
+
+const disemvowel = str => str.replace(/[aeiou]/gi, '');
+
+console.log(disemvowel('This website is for losers LOL!'));
+console.log(
+  disemvowel("No offense but,\nYour writing is among the worst I've ever read")
+);
+
+// ****************************** Nr 9 ************************************
+// Given an array of integers, find the one that appears an odd number of times.
+
+// There will always be only one integer that appears an odd number of times.
+
+// Examples
+// [7] should return 7, because it occurs 1 time (which is odd).
+// [0] should return 0, because it occurs 1 time (which is odd).
+// [1,1,2] should return 2, because it occurs 1 time (which is odd).
+// [0,1,0,1,0] should return 0, because it occurs 3 times (which is odd).
+// [1,2,2,3,3,3,4,3,3,3,2,2,1] should return 4, because it appears 1 time (which is odd).
+
+const findOdd = a => {
+  const uniqueElem = new Set();
+
+  for (const num of a) {
+    if (uniqueElem.has(num)) {
+      uniqueElem.delete(num);
+    } else {
+      uniqueElem.add(num);
+    }
+  }
+
+  return Array.from(uniqueElem)[0];
+};
+
+console.log(findOdd([7]));
+console.log(findOdd([0]));
+console.log(findOdd([1, 1, 2]));
+console.log(findOdd([0, 1, 0, 1, 0]));
+
+// ******************************* Nr 10 ***********************************
+
+// There is a bus moving in the city which takes and drops some people at each bus stop.
+
+// You are provided with a list (or array) of integer pairs. Elements of each pair represent the number of people that get on the bus (the first item) and the number of people that get off the bus (the second item) at a bus stop.
+
+// Your task is to return the number of people who are still on the bus after the last bus stop (after the last array). Even though it is the last bus stop, the bus might not be empty and some people might still be inside the bus, they are probably sleeping there :D
+
+// Take a look on the test cases.
+
+// Please keep in mind that the test cases ensure that the number of people in the bus is always >= 0. So the returned integer can't be negative.
+
+// The second value in the first pair in the array is 0, since the bus is empty in the first bus stop.
+
+const busStops = number => {
+  let sum = 0;
+  let difference = 0;
+
+  for (const subArray of number) {
+    sum += subArray[0];
+    difference += subArray[1];
+  }
+  return sum - difference;
+};
+
+console.log(
+  busStops([
+    [10, 0],
+    [3, 5],
+    [5, 8],
+  ])
+);
+console.log(
+  busStops([
+    [3, 0],
+    [9, 1],
+    [4, 10],
+    [12, 2],
+    [6, 1],
+    [7, 10],
+  ])
+);
+console.log(
+  busStops([
+    [3, 0],
+    [9, 1],
+    [4, 8],
+    [12, 2],
+    [6, 1],
+    [7, 8],
+  ])
+);
+console.log(busStops([[0, 0]]));

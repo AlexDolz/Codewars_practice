@@ -320,3 +320,84 @@ console.log(
   ])
 );
 console.log(busStops([[0, 0]]));
+
+// ***************************** Nr 11 **************************************
+// There was a test in your class and you passed it. Congratulations!
+// But you're an ambitious person. You want to know if you're better than the average student in your class.
+
+// You receive an array with your peers' test scores. Now calculate the average and compare your score!
+
+// Return True if you're better, else False!
+
+// Note:
+// Your points are not included in the array of your class's points. For calculating the average point you may add your point to the given array!
+
+const betterThanAverage = (classPoints, yourPoints) => {
+  const reduceClassPoints =
+    classPoints.reduce((acc, cur) => acc + cur, 0) / classPoints.length;
+  return true ? reduceClassPoints < yourPoints : false;
+};
+
+console.log(betterThanAverage([100, 40, 34, 57, 29, 72, 57, 88], 75));
+console.log(betterThanAverage([2, 3], 5));
+console.log(betterThanAverage([12, 23, 34, 45, 56, 67, 78, 89, 90], 9));
+
+// ****************************** Nr 12 ************************************
+
+// The purpose of this kata is to work out just how many bottles of duty free whiskey you would have to buy such that the savings over the normal high street price would effectively cover the cost of your holiday.
+
+// You will be given the high street price (normPrice, in £ (Pounds)), the duty free discount (discount, in percent) and the cost of the holiday (in £).
+
+// For example, if a bottle costs £10 normally and the duty free discount is 10%, you would save £1 per bottle. If your holiday will cost £500, you would have to purchase 500 bottles to save £500, so the answer you return should be 500.
+
+// Another example: if a bottle costs £12 normally and the duty free discount is 50%, you would save £6 per bottle. If your holiday will cost £1000, you would have to purchase 166.66 bottles to save £1000, so your answer should be 166 bottles.
+
+// All inputs will be integers. Please return an integer. Round down.
+
+const dutyFree = (normPrice, discount, hol) => {
+  return Math.floor(hol / (normPrice * (discount / 100)));
+};
+
+console.log(dutyFree(12, 50, 1000));
+console.log(dutyFree(17, 10, 500));
+console.log(dutyFree(24, 35, 3000));
+
+// **************************** NR 13 ***************************************
+
+// In this Kata, you will be given a string that may have mixed uppercase and lowercase letters and your task is to convert that string to either lowercase only or uppercase only based on:
+
+// make as few changes as possible.
+// if the string contains equal number of uppercase and lowercase letters, convert the string to lowercase.
+// For example:
+
+// solve("coDe") = "code". Lowercase characters > uppercase. Change only the "D" to lowercase.
+// solve("CODe") = "CODE". Uppercase characters > lowecase. Change only the "e" to uppercase.
+// solve("coDE") = "code". Upper == lowercase. Change all to lowercase.
+
+const solve = s => {
+  let lowerCase = 0;
+  let upperCase = 0;
+
+  for (const char of s) {
+    if (char === char.toUpperCase()) {
+      upperCase++;
+    } else {
+      lowerCase++;
+    }
+  }
+
+  console.log(upperCase, lowerCase);
+
+  if (upperCase > lowerCase) {
+    return s.toUpperCase();
+  } else if (lowerCase === upperCase) {
+    return s.toLowerCase();
+  } else if (lowerCase > upperCase) {
+    return s.toLowerCase();
+  }
+};
+
+console.log(solve('code'));
+console.log(solve('CODe'));
+console.log(solve('COde'));
+console.log(solve('Code'));

@@ -443,3 +443,115 @@ const sortArray = array => {
 console.log(sortArray([7, 1]));
 console.log(sortArray([5, 8, 6, 3, 4]));
 console.log(sortArray([9, 8, 7, 6, 5, 4, 3, 2, 1, 0]));
+
+// ******************************** Nr 16 **************************************
+
+// Count the number of divisors of a positive integer n.
+
+// Random tests go up to n = 500000.
+
+// Examples (input --> output)
+// 4 --> 3 // we have 3 divisors - 1, 2 and 4
+// 5 --> 2 // we have 2 divisors - 1 and 5
+// 12 --> 6 // we have 6 divisors - 1, 2, 3, 4, 6 and 12
+// 30 --> 8 // we have 8 divisors - 1, 2, 3, 5, 6, 10, 15 and 30
+// Note you should only return a number, the count of divisors. The numbers between parentheses are shown only for you to see which numbers are counted in each case.
+
+const getDivisorsCnt = n => {
+  let count = 0;
+
+  for (let i = 1; i <= Math.sqrt(n); i++) {
+    if (n % i === 0) {
+      if (i === n / i) {
+        count++;
+      } else {
+        count += 2;
+      }
+    }
+  }
+
+  return count;
+};
+
+console.log(getDivisorsCnt(1));
+console.log(getDivisorsCnt(10));
+console.log(getDivisorsCnt(11));
+console.log(getDivisorsCnt(54));
+
+// ****************************** Nr 17 **************************************
+
+// What if we need the length of the words separated by a space to be added at the end of that same word and have it returned as an array?
+
+// Example(Input --> Output)
+
+// "apple ban" --> ["apple 5", "ban 3"]
+// "you will win" -->["you 3", "will 4", "win 3"]
+// Your task is to write a function that takes a String and returns an Array/list with the length of each word added to each element .
+
+// Note: String will have at least one element; words will always be separated by a space.
+
+const addLength = str => {
+  return str.split(' ').map(word => `${word} ${word.length}`);
+};
+
+console.log(addLength('apple ban'));
+console.log(addLength('you will win'));
+
+// ******************************* Nr 18 *************************************
+
+// Scenario
+// Several people are standing in a row divided into two teams.
+// The first person goes into team 1, the second goes into team 2, the third goes into team 1, and so on.
+
+// Task
+// Given an array of positive integers (the weights of the people), return a new array/tuple of two integers, where the first one is the total weight of team 1, and the second one is the total weight of team 2.
+
+// Notes
+// Array size is at least 1.
+// All numbers will be positive.
+// Input >> Output Examples
+// rowWeights([13, 27, 49])  ==>  return (62, 27)
+// Explanation:
+// The first element 62 is the total weight of team 1, and the second element 27 is the total weight of team 2.
+
+// rowWeights([50, 60, 70, 80])  ==>  return (120, 140)
+// Explanation:
+// The first element 120 is the total weight of team 1, and the second element 140 is the total weight of team 2.
+
+// rowWeights([80])  ==>  return (80, 0)
+// Explanation:
+// The first element 80 is the total weight of team 1, and the second element 0 is the total weight of team 2.
+
+const rowWeights = array => {
+  let team1 = 0;
+  let team2 = 0;
+
+  array.forEach((elem, i) => {
+    if (i % 2 === 0) {
+      team1 += elem;
+    } else {
+      team2 += elem;
+    }
+  });
+  return [team1, team2];
+};
+
+console.log(rowWeights([80]));
+console.log(rowWeights([100, 50]));
+console.log(rowWeights([50, 60, 70, 80]));
+
+// ******************************** Nr 19 *************************************
+// In this kata you will create a function that takes a list of non-negative integers and strings and returns a new list with the strings filtered out.
+
+// Example
+// filter_list([1,2,'a','b']) == [1,2]
+// filter_list([1,'a','b',0,15]) == [1,0,15]
+// filter_list([1,2,'aasf','1','123',123]) == [1,2,123]
+
+const filter_list = l => {
+  return l.filter(elem => typeof elem === 'number');
+};
+
+console.log(filter_list([1, 2, 'a', 'b']));
+console.log(filter_list([1, 'a', 'b', 0, 15]));
+console.log(filter_list([1, 2, 'aasf', '1', '123', 123]));

@@ -598,3 +598,24 @@ console.log(
   sayHello(['Franklin', 'Delano', 'Roosevelt'], 'Chicago', 'Illinois')
 );
 console.log(sayHello(['Wallace', 'Russel', 'Osbourne'], 'Albany', 'New York'));
+
+// *************************** Nr 21 *************************
+// Complete the function which converts a binary number (given as a string) to a decimal number.
+
+function binToDec(bin) {
+  return parseInt(bin, 2);
+}
+
+// ************************* Nr 22 ***************************
+
+// Your team is writing a fancy new text editor and you've been tasked with implementing the line numbering.
+
+// Write a function which takes a list of strings and returns each line prepended by the correct number.
+
+// The numbering starts at 1. The format is n: string. Notice the colon and space in between.
+
+const number = function (array) {
+  return array.map((line, index) => `${index + 1}: ${line}`);
+};
+
+console.log(number(['a', 'b', 'c']));

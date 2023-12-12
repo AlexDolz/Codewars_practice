@@ -619,3 +619,38 @@ const number = function (array) {
 };
 
 console.log(number(['a', 'b', 'c']));
+
+// **************************** Nr 23 *************************
+
+// JavaScript Arrays support a filter function (starting in JavaScript 1.6). Use the filter functionality to complete the function given.
+
+const getEvenNumbers = function (numbersArray) {
+  return numbersArray.filter(elem => elem % 2 === 0);
+};
+
+console.log(getEvenNumbers([1, 2, 3, 6, 8, 10]));
+console.log(getEvenNumbers([1, 2]));
+console.log(getEvenNumbers([12, 14, 15]));
+console.log(getEvenNumbers([13, 15]));
+console.log(getEvenNumbers([1, 3, 9]));
+
+// ************************** Nr 24 ***************************
+
+// Return the number (count) of vowels in the given string.
+
+// We will consider a, e, i, o, u as vowels for this Kata (but not y).
+
+// The input string will only consist of lower case letters and/or spaces.
+
+const getCount = function (str) {
+  const vowels = ['a', 'e', 'i', 'o', 'u'];
+  let vowelCount = 0;
+  for (const char of str) {
+    if (vowels.includes(char)) {
+      vowelCount++;
+    }
+  }
+  return vowelCount;
+};
+
+console.log(getCount('abracadabra'));

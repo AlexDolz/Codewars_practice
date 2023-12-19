@@ -654,3 +654,32 @@ const getCount = function (str) {
 };
 
 console.log(getCount('abracadabra'));
+
+// **************************** Nr 25 *************************
+
+// Create a method that accepts a list and an item, and returns true if the item belongs to the list, otherwise false.
+
+function include(arr, item) {
+  return arr.includes(item);
+}
+
+console.log(include([1, 2, 3, 4, 5], 3));
+console.log(include([1, 2, 4, 5], 3));
+console.log(include([], 3));
+
+// ************************** Nr 26 ***************************
+
+// Give you a function animal, accept 1 parameter:obj like this:
+
+// {name:"dog",legs:4,color:"white"}
+// and return a string like this:
+
+// "This white dog has 4 legs."
+
+function animal(obj) {
+  return `This ${obj.color} ${obj.name} has ${obj.legs} legs.`;
+}
+
+console.log(animal({ name: 'dog', legs: 4, color: 'white' }));
+console.log(animal({ name: 'cock', legs: 2, color: 'red' }));
+console.log(animal({ name: 'rabbit', legs: 4, color: 'gray' }));

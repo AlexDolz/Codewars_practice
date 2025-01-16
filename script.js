@@ -927,3 +927,69 @@ function findLargest(array) {
 
 console.log(findLargest([1, 3, 5, 15, 2, 4]));
 console.log('*****************************************');
+
+// *************************** Nr 34 ****************************
+
+// Reverse a String Without Using Built-in Methods
+// Problem: Write a function that reverses a string without using any built-in methods like reverse() or split(). You need to implement the logic from scratch.
+
+// Requirements:
+
+// Do not use reverse() or split() methods.
+// The function should return the reversed string.
+
+function reverseString(str) {
+  let reversedStr = '';
+
+  for (let i = str.length - 1; i >= 0; i--) {
+    reversedStr += str[i];
+  }
+  return reversedStr;
+}
+
+console.log(reverseString('hello'));
+console.log(reverseString('world'));
+console.log('**********************************');
+
+// ****************************** Nr 35 *************************
+// FizzBuzz
+// Write a function that prints numbers from 1 to n. For multiples of 3, print "Fizz", for multiples of 5, print "Buzz", and for numbers which are multiples of both 3 and 5, print "FizzBuzz".
+
+// Requirements:
+// The function should return an array with the results for each number in the range from 1 to n.
+
+function fizzBuzz(num) {
+  const array = [];
+
+  for (let i = 1; i <= num; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      array.push('FizzBuzz');
+    } else if (i % 3 === 0) {
+      array.push('Fizz');
+    } else if (i % 5 === 0) {
+      array.push('Buzz');
+    } else {
+      array.push(i.toString());
+    }
+  }
+  console.log(array);
+  return array;
+}
+
+console.log(fizzBuzz(15));
+console.log('*********************************');
+
+// ***************************** Nr 36 *************************
+// Remove Duplicates from an Array
+// Write a function that takes an array of numbers and returns a new array with all the duplicates removed, preserving the order of the elements.
+
+// Requirements:
+// The function should not modify the original array.
+// You can use basic array methods like map(), filter(), or a Set, but do not use any external libraries.
+
+function removeDuplicates(arr) {
+  return [...new Set(arr)];
+}
+
+console.log(removeDuplicates([1, 2, 2, 3, 4, 3, 5]));
+console.log('*****************************');

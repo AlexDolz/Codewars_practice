@@ -808,3 +808,25 @@ const number2 = [1, 2, 3, 4];
 const number2Doubled = number2.myMap(num => num * 2);
 
 console.log(number2Doubled);
+
+// ************************* Nr 29 *****************************
+
+//   Palindrom
+
+const isPalindrom = str => {
+  const sanitized = str
+    .toLowerCase()
+    .split('')
+    .filter(
+      char => char !== ' ' && char !== '!' && char !== '?' && char !== ','
+    )
+    .join('');
+
+  const reversed = sanitized.split('').reverse().join('');
+
+  return reversed === sanitized;
+};
+
+console.log(isPalindrom('Was it a car or a cat I saw'));
+console.log(isPalindrom('Able was I, I saw Elba'));
+console.log(isPalindrom('Hello'));

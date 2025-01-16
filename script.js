@@ -788,3 +788,23 @@ console.log(findNeedle(haystack_1)); // 3
 console.log(findNeedle(haystack_2)); // 5
 console.log(findNeedle(haystack_3)); // 30
 console.log(findNeedle(haystack_4)); // 5
+
+// ************************** Nr 28 **************************
+
+// Implement your method myMap
+Array.prototype.myMap = function (callback) {
+  const result = [];
+  for (let i = 0; i < this.length; i++) {
+    if (this.hasOwnProperty(i)) {
+      result.push(callback(this[i], i, this));
+    }
+  }
+
+  return result;
+};
+
+const number2 = [1, 2, 3, 4];
+
+const number2Doubled = number2.myMap(num => num * 2);
+
+console.log(number2Doubled);

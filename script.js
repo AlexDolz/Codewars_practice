@@ -865,7 +865,7 @@ console.log(reverse('Hello World'));
 console.log(reverse('Hi There.'));
 console.log('**********************************');
 
-// ************************ N32 *********************************
+// ************************ Nr 32 ********************************
 
 // A square of squares
 // You like building blocks. You especially like building blocks that are squares. And what you even like more, is to arrange them into a square of square building blocks!
@@ -890,3 +890,40 @@ console.log(isSquare(4));
 console.log(isSquare(25));
 console.log(isSquare(26));
 console.log('******************************************');
+
+// ************************** Nr 33 ****************************
+
+// Write a function that takes a sentence as input and returns the sentence with the words reversed but the order of the words intact.
+
+// Requirements:
+// You should not reverse the characters of the words, only their positions.
+// Words are separated by spaces.
+
+function reverseWords(str) {
+  return str.split(' ').reverse().join(' ');
+}
+
+console.log(reverseWords('The quick brown fox'));
+console.log('*******************************');
+
+// **************************** Nr 34 ***************************
+
+// Write a function that takes an array of numbers and returns the largest number in the array.
+
+// Requirements:
+// Assume the array will contain at least one number.
+// Do not use the built-in Math.max() method.
+
+function findLargest(array) {
+  let largest = array[0];
+
+  for (let i = 1; i < array.length; i++) {
+    if (array[i] > largest) {
+      largest = array[i];
+    }
+  }
+  return largest;
+}
+
+console.log(findLargest([1, 3, 5, 15, 2, 4]));
+console.log('*****************************************');

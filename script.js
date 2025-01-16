@@ -830,3 +830,22 @@ const isPalindrom = str => {
 console.log(isPalindrom('Was it a car or a cat I saw'));
 console.log(isPalindrom('Able was I, I saw Elba'));
 console.log(isPalindrom('Hello'));
+console.log('********************************');
+
+// ************************* Nr 30 *****************************
+
+// Input: Array of elements
+
+// ["h","o","l","a"]
+
+// Output: String with comma delimited elements of the array in th same order.
+
+// "h,o,l,a"
+
+// Note2: the input data can be: boolean array, array of objects, array of string arrays, array of number arrays...
+
+function printArray(array) {
+  return array.join();
+}
+
+console.log(printArray(['h', 'o', 'l', 'a']));

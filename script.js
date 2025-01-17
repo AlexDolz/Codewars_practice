@@ -993,3 +993,51 @@ function removeDuplicates(arr) {
 
 console.log(removeDuplicates([1, 2, 2, 3, 4, 3, 5]));
 console.log('*****************************');
+
+// **************************** Nr 37 *************************
+
+// Given a sequence of numbers, find the largest pair sum in the sequence.
+
+function largestPairSum(num) {
+  num.sort((a, b) => b - a);
+  const largest = num[0];
+  const secondeLargest = num[1];
+  return largest + secondeLargest;
+}
+
+console.log(largestPairSum([10, 14, 2, 23, 19]));
+console.log(largestPairSum([99, 2, 2, 23, 19]));
+console.log('********************************');
+
+// **************************** Nr 38 *************************
+function add(a, b) {
+  return a + b;
+}
+
+function divide(a, b) {
+  return a / b;
+}
+
+function multiply(a, b) {
+  return a * b;
+}
+
+function mod(a, b) {
+  return a % b;
+}
+
+function exponent(a, b) {
+  return a ** b;
+}
+
+function subt(a, b) {
+  return a - b;
+}
+
+console.log(add(1, 2));
+console.log(divide(1, 2));
+console.log(multiply(1, 2));
+console.log(mod(1, 2));
+console.log(exponent(1, 2));
+console.log(subt(1, 2));
+console.log('***************************');

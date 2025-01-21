@@ -1089,3 +1089,18 @@ console.log(count('a'));
 console.log(count('ab'));
 console.log(count('aba'));
 console.log(count('ABC'));
+
+// *********************** Nr 41 *******************************
+
+// Accountant time! For a given quantity and price (per mango), calculate the total cost of the mangoes.
+// But! Every third mango is free!
+
+function mango(quantity, price) {
+  const setsOfThree = Math.floor(quantity / 3);
+  const remainingMangoes = quantity % 3;
+  const totalCost = setsOfThree * 2 * price + remainingMangoes * price;
+  return totalCost;
+}
+
+console.log(mango(3, 3));
+console.log(mango(9, 5));

@@ -1089,6 +1089,7 @@ console.log(count('a'));
 console.log(count('ab'));
 console.log(count('aba'));
 console.log(count('ABC'));
+console.log('*************************');
 
 // *********************** Nr 41 *******************************
 
@@ -1104,3 +1105,63 @@ function mango(quantity, price) {
 
 console.log(mango(3, 3));
 console.log(mango(9, 5));
+console.log('*************************');
+
+// ************************** Nr 42 ****************************
+
+// Write a small function that returns the values of an array that are not odd.
+
+// All values in the array will be integers. Return the good values in the order they are given.
+
+function noOdds(array) {
+  return array.filter(value => value % 2 === 0);
+}
+
+console.log(noOdds([0, 1]));
+console.log(noOdds([0, 1, 2, 3]));
+console.log('**************************');
+
+// ************************* Nr 43 *****************************
+
+// Complete the solution so that the function will break up camel casing, using a space between words
+
+function solution(string) {
+  let result = '';
+  for (let char of string) {
+    if (char === char.toUpperCase()) {
+      result += ' ' + char;
+    } else {
+      result += char;
+    }
+  }
+  return result;
+}
+
+console.log(solution(''));
+console.log(solution('camelCasing'));
+console.log(solution('identifier'));
+console.log('*******************************');
+
+// ************************** Nr 44 ****************************
+
+// Write a function named sumDigits which takes a number as input and returns the sum of the absolute value of each of the number's decimal digits.
+
+function sumDigits(number) {
+  // const absolute = Math.abs(number);
+  // const string = absolute.toString();
+  // let sum = 0;
+  // for (let char of string) {
+  //   sum += +char;
+  // }
+  // return sum;
+
+  return Math.abs(number)
+    .toString()
+    .split('')
+    .reduce((sum, char) => sum + +char, 0);
+}
+
+console.log(sumDigits(10));
+console.log(sumDigits(99));
+console.log(sumDigits(-32));
+console.log('****************************');

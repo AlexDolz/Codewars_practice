@@ -1178,3 +1178,22 @@ function friend(friends) {
 
 console.log(friend(['Ryan', 'Kieran', 'Mark']));
 console.log(friend(['Ryan', 'Jimmy', '123', '4', 'Cool Man']));
+console.log('******************************');
+
+// ************************ Nr 46 *****************************
+
+// Define a method hello that returns "Hello, Name!" to a given name, or says Hello, World! if name is not given (or passed as an empty String).
+
+// Assuming that name is a String and it checks for user typos to return a name with a first capital letter (Xxxx).
+
+function hello(name) {
+  if (!name || name.trim() === '') return 'Hello, World!';
+  const low = name.toLowerCase();
+  return `Hello, ${low.charAt(0).toUpperCase() + low.slice(1)}!`;
+}
+
+console.log(hello('alice'));
+console.log(hello('johN'));
+console.log(hello(''));
+console.log(hello());
+console.log('************************************');

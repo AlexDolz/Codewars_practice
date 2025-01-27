@@ -1197,3 +1197,66 @@ console.log(hello('johN'));
 console.log(hello(''));
 console.log(hello());
 console.log('************************************');
+
+// ***************************** Nr 47 *************************
+
+// In this simple exercise, you will create a program that will take two lists of integers, a and b. Each list will consist of 3 positive integers above 0, representing the dimensions of cuboids a and b. You must find the difference of the cuboids' volumes regardless of which is bigger.
+
+// For example, if the parameters passed are ([2, 2, 3], [5, 4, 1]), the volume of a is 12 and the volume of b is 20. Therefore, the function should return 8.
+
+// Your function will be tested with pre-made examples as well as random ones.
+
+// If you can, try writing it in one line of code.
+
+function findDifference(a, b) {
+  return Math.abs(
+    a.reduce((acc, sum) => acc * sum, 1) - b.reduce((acc, sum) => acc * sum, 1)
+  );
+}
+
+console.log(findDifference([3, 2, 5], [1, 4, 4]));
+console.log(findDifference([9, 7, 2], [5, 2, 2]));
+console.log(findDifference([11, 2, 5], [1, 10, 8]));
+console.log(findDifference([4, 4, 7], [3, 9, 3]));
+console.log(findDifference([15, 20, 25], [10, 30, 25]));
+console.log(findDifference([24, 4, 3], [5, 16, 19]));
+console.log('***********************************');
+
+// ************************ Nr 48 ******************************
+
+// Jaden Smith, the son of Will Smith, is the star of films such as The Karate Kid (2010) and After Earth (2013). Jaden is also known for some of his philosophy that he delivers via Twitter. When writing on Twitter, he is known for almost always capitalizing every word. For simplicity, you'll have to capitalize each word, check out how contractions are expected to be in the example below.
+
+// Your task is to convert strings to how they would be written by Jaden Smith. The strings are actual quotes from Jaden Smith, but they are not capitalized in the same way he originally typed them.
+
+String.prototype.toJadenCase = function () {
+  return this.split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+};
+
+str = "How can mirrors be real if our eyes aren't real";
+console.log(str.toJadenCase());
+console.log('**************************');
+
+// *********************** Nr 49 *******************************
+
+// Create a function that accepts a list/array and a number n, and returns a list/array of the first n elements from the list/array.
+
+function take(arr, n) {
+  return arr.slice(0, n);
+}
+
+console.log(take([0, 1, 2, 3, 5, 8, 13], 3));
+console.log('***************************************');
+
+// *********************** Nr 50 *******************************
+
+// Given a list of digits, return the smallest number that could be formed from these digits, using the digits only once (ignore duplicates). Only positive integers in the range of 1 to 9 will be passed to the function.
+
+function minValue(values) {
+  return +[...new Set(values)].sort((a, b) => a - b).join('');
+}
+
+console.log(minValue([1, 3, 1]));
+console.log(minValue([4, 7, 5, 7]));
+console.log('***********************************');

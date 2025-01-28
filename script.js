@@ -1303,3 +1303,26 @@ console.log(accum('MjtkuBovqrU'));
 console.log(accum('EvidjUnokmM'));
 console.log(accum('hbideVbxncC'));
 console.log('**************************');
+
+// **************************** Nr 53 **************************
+
+// Replace all vowel to exclamation mark in the sentence. aeiouAEIOU is vowel.
+
+function replace(s) {
+  let vowels = 'aeiouAEIOU';
+  let result = '';
+
+  for (let char of s) {
+    if (vowels.includes(char)) {
+      result += '!';
+    } else {
+      result += char;
+    }
+  }
+  return result;
+}
+
+console.log(replace('Hi!'));
+console.log(replace('!Hi! Hi!'));
+console.log(replace('aeiou'));
+console.log(replace('ABCDE'));

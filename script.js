@@ -1359,3 +1359,90 @@ console.log(feast('great blue heron', 'garlic naan'));
 console.log(feast('chickadee', 'chocolate cake'));
 console.log(feast('brown bear', 'bear claw'));
 console.log('********************************');
+
+// ************************** Nr 56 ***************************
+
+// You need to write regex that will validate a password to make sure it meets the following criteria:
+
+// At least six characters long
+// contains a lowercase letter
+// contains an uppercase letter
+// contains a digit
+// only contains alphanumeric characters (note that '_' is not alphanumeric)
+
+const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,}$/;
+
+console.log(regex.test('Abc123'));
+console.log(regex.test('abcdef'));
+console.log(regex.test('ABCDEF'));
+console.log(regex.test('123456'));
+console.log(regex.test('Abc12'));
+console.log(regex.test('Abc_123'));
+console.log('**************************');
+
+// ***************************** Nr 57 **************************
+
+// Define String.prototype.toAlternatingCase (or a similar function/method such as to_alternating_case/toAlternatingCase/ToAlternatingCase in your selected language; see the initial solution for details) such that each lowercase letter becomes uppercase and each uppercase letter becomes lowercase. For example:
+
+String.prototype.toAlternatingCase = function () {
+  return this.split('')
+    .map(char =>
+      char === char.toUpperCase() ? char.toLowerCase() : char.toUpperCase()
+    )
+    .join('');
+};
+
+console.log('hello world'.toAlternatingCase());
+console.log('HELLO WORLD'.toAlternatingCase());
+console.log('12345'.toAlternatingCase());
+console.log('***********************************');
+
+// ********************** Nr 58 *******************************
+
+// Complete the function which returns the weekday according to the input number:
+
+// 1 returns "Sunday"
+// 2 returns "Monday"
+// 3 returns "Tuesday"
+// 4 returns "Wednesday"
+// 5 returns "Thursday"
+// 6 returns "Friday"
+// 7 returns "Saturday"
+// Otherwise returns "Wrong, please enter a number between 1 and 7"
+
+function whatday(num) {
+  const weekdays = [
+    'Wrong, please enter a number between 1 and 7',
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+  ];
+
+  return weekdays[num] || weekdays[0];
+}
+
+console.log(whatday(1));
+console.log(whatday(2));
+console.log(whatday(3));
+console.log(whatday(8));
+console.log(whatday(20));
+console.log('******************************');
+
+// ************************* Nr 59 *****************************
+
+// Write a function that when given a URL as a string, parses out just the domain name and returns it as a string.
+
+function domainName(url) {
+  const replace = url.replace(/^(https?:\/\/)?(www\.)?/, '');
+  return replace.split('.')[0];
+}
+
+console.log(domainName('http://google.com'));
+console.log(domainName('http://google.co.jp'));
+console.log(domainName('www.xakep.ru'));
+console.log(domainName('https://youtube.com'));
+console.log('*************************************');

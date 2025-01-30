@@ -1446,3 +1446,59 @@ console.log(domainName('http://google.co.jp'));
 console.log(domainName('www.xakep.ru'));
 console.log(domainName('https://youtube.com'));
 console.log('*************************************');
+
+// ************************** Nr 60 ****************************
+
+// Write a function that checks if a given string (case insensitive) is a palindrome.
+
+// A palindrome is a word, number, phrase, or other sequence of symbols that reads the same backwards as forwards, such as madam or racecar.
+
+function isPalindrom2(x) {
+  return x.toLowerCase().split('').reverse().join('') === x.toLowerCase()
+    ? true
+    : false;
+}
+
+console.log(isPalindrom2('a'));
+console.log(isPalindrom2('aBa'));
+console.log(isPalindrom2('hello'));
+console.log(isPalindrom2('madam'));
+console.log(isPalindrom2('racecar'));
+console.log('*************************************');
+
+// **************************** Nr 61 **************************
+
+// Given a string of words, you need to find the highest scoring word.
+
+// Each letter of a word scores points according to its position in the alphabet: a = 1, b = 2, c = 3 etc.
+
+// For example, the score of abad is 8 (1 + 2 + 1 + 4).
+
+// You need to return the highest scoring word as a string.
+
+// If two words score the same, return the word that appears earliest in the original string.
+
+// All letters will be lowercase and all inputs will be valid.
+
+function high(x) {
+  const words = x.split(' ');
+  let maxScore = 0;
+  let highestWord = '';
+
+  for (let word of words) {
+    let score = [...word].reduce(
+      (sum, char) => sum + (char.charCodeAt(0) - 96),
+      0
+    );
+    if (score > maxScore) {
+      maxScore = score;
+      highestWord = word;
+    }
+  }
+
+  return highestWord;
+}
+
+console.log(high('man i need a taxi up to ubud'));
+console.log(high('what time are we climbing up the volcano'));
+console.log('**********************************');

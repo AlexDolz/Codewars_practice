@@ -1554,3 +1554,45 @@ console.log(
   points(['1:1', '2:2', '3:3', '4:4', '2:2', '3:3', '4:4', '3:3', '4:4', '4:4'])
 );
 console.log('*******************');
+
+// ************************* Nr 64 ******************************
+
+// Create a function with two arguments that will return an array of the first n multiples of x.
+
+// Assume both the given number and the number of times to count will be positive numbers greater than 0.
+
+// Return the results as an array
+
+function countBy(x, n) {
+  return Array.from({ length: n }, (_, i) => (i + 1) * x);
+}
+
+console.log(countBy(1, 10));
+console.log(countBy(2, 5));
+console.log('***********************');
+
+// ************************ Nr 65 *******************************
+
+// Find Mean
+// Find the mean (average) of a list of numbers in an array.
+
+// Information
+// To find the mean (average) of a set of numbers add all of the numbers together and divide by the number of values in the list.
+
+// For an example list of 1, 3, 5, 7
+
+// 1. Add all of the numbers
+
+// 1+3+5+7 = 16
+// 2. Divide by the number of values in the list. In this example there are 4 numbers in the list.
+
+// 16/4 = 4
+// 3. The mean (or average) of this list is 4
+
+function findAverage(nums) {
+  return nums.reduce((sum, acc) => sum + acc, 0) / nums.length;
+}
+
+console.log(findAverage([1]));
+console.log(findAverage([1, 3, 5, 7]));
+console.log('********************************');

@@ -1596,3 +1596,103 @@ function findAverage(nums) {
 console.log(findAverage([1]));
 console.log(findAverage([1, 3, 5, 7]));
 console.log('********************************');
+
+// *********************** Nr 66 *******************************
+
+// Your goal is to return multiplication table for number that is always an integer from 1 to 10.
+
+// For example, a multiplication table (string) for number == 5 looks like below:
+
+function multiTable(number) {
+  return Array.from(
+    { length: 10 },
+    (_, i) => `${i + 1} * ${number} = ${(i + 1) * number}`
+  ).join('\n');
+}
+
+console.log(multiTable(5));
+console.log(multiTable(1));
+console.log('***************************');
+
+// ***************************** Nr 67 **************************
+
+// Complete function saleHotdogs/SaleHotDogs/sale_hotdogs, function accepts 1 parameter:n, n is the number of hotdogs a customer will buy, different numbers have different prices (refer to the following table), return how much money will the customer spend to buy that number of hotdogs.
+
+// number of hotdogs	price per unit (cents)
+// n < 5	100
+// n >= 5 and n < 10	95
+// n >= 10	90
+// You can use if..else or ternary operator to complete it.
+
+function saleHotdogs(n) {
+  return n >= 5 && n < 10 ? n * 95 : n < 5 ? n * 100 : n * 90;
+}
+
+console.log(saleHotdogs(1));
+console.log(saleHotdogs(4));
+console.log(saleHotdogs(5));
+console.log(saleHotdogs(9));
+console.log(saleHotdogs(10));
+console.log(saleHotdogs(100));
+console.log('**********************************');
+
+// ************************** Nr 68 *****************************
+
+// *** No Loops Allowed ***
+
+// You will be given an array a and a value x. All you need to do is check whether the provided array contains the value, without using a loop.
+
+// Array can contain numbers or strings. x can be either. Return true if the array contains the value, false if not. With strings you will need to account for case.
+
+function check(a, x) {
+  return a.includes(x);
+}
+
+console.log(check([66, 101], 66));
+console.log(check([80, 117, 115, 104, 45, 85, 112, 115], 45));
+console.log(check(['t', 'e', 's', 't'], 'e'));
+console.log(check(['what', 'a', 'great', 'kata'], 'kat'));
+console.log('****************************');
+
+// ************************ Nr 69 ******************************
+
+// You will be given a list of strings. You must sort it alphabetically (case-sensitive, and based on the ASCII values of the chars) and then return the first value.
+
+// The returned value must be a string, and have "***" between each of its letters.
+
+// You should not remove or add elements from/to the array.
+
+function twoSort(s) {
+  return s.sort()[0].split('').join('***');
+}
+
+console.log(
+  twoSort([
+    'bitcoin',
+    'take',
+    'over',
+    'the',
+    'world',
+    'maybe',
+    'who',
+    'knows',
+    'perhaps',
+  ])
+);
+console.log(
+  twoSort([
+    'turns',
+    'out',
+    'random',
+    'test',
+    'cases',
+    'are',
+    'easier',
+    'than',
+    'writing',
+    'out',
+    'basic',
+    'ones',
+  ])
+);
+console.log('*********************************');

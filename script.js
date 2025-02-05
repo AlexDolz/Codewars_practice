@@ -1696,3 +1696,50 @@ console.log(
   ])
 );
 console.log('*********************************');
+
+// ************************ Nr 70 ******************************
+
+// Create a function called _if which takes 3 arguments: a value bool and 2 functions (which do not take any parameters): func1 and func2
+
+// When bool is truthy, func1 should be called, otherwise call the func2.
+
+function _if(bool, func1, func2) {
+  return bool ? func1() : func2();
+}
+
+_if(
+  true,
+  () => console.log('True function called'),
+  () => console.log('False function called')
+);
+
+_if(
+  false,
+  () => console.log('True function called'),
+  () => console.log('False function called')
+);
+console.log('**********************************');
+
+// ***************************** Nr 71 **************************
+
+// Write a function called removeDuplicates that takes an array of numbers and returns a new array with duplicate numbers removed while preserving the original order.
+
+function removeDuplicates(array) {
+  return [...new Set(array)];
+
+  // Without Set
+  // let seen = {};
+  // let uniq = [];
+
+  // for (num of array) {
+  //   if (!seen[num]) {
+  //     uniq.push(num);
+  //     seen[num] = true;
+  //   }
+  // }
+  // return uniq;
+}
+
+console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5]));
+console.log(removeDuplicates([7, 8, 8, 9, 9, 10]));
+console.log('*******************************');

@@ -1743,3 +1743,24 @@ function removeDuplicates(array) {
 console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5]));
 console.log(removeDuplicates([7, 8, 8, 9, 9, 10]));
 console.log('*******************************');
+
+// ********************************** Nr 72 *********************
+
+// Write a JavaScript function that takes a string as input and returns the reversed version of it.
+
+// Make sure the function works even if the input has spaces or special characters.
+// Write the function in two different ways (e.g., using a loop and using built-in methods).
+
+function reverseString(string) {
+  // return string.trim().split('').reverse().join('');
+
+  let reversed = '';
+  for (let i = string.length - 1; i >= 0; i--) {
+    reversed += string[i];
+  }
+  return reversed;
+}
+
+console.log(reverseString('hello'));
+console.log(reverseString('JavaScript'));
+console.log('****************************');

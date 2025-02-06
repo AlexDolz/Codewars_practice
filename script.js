@@ -1764,3 +1764,40 @@ function reverseString(string) {
 console.log(reverseString('hello'));
 console.log(reverseString('JavaScript'));
 console.log('****************************');
+// ************************ Nr 73 ******************************
+
+// Write a function that accepts two integers and returns the remainder of dividing the larger value by the smaller value.
+
+// Division by zero should return NaN.
+
+function remainder(n, m) {
+  return n > m ? n % m : m % n;
+}
+
+console.log(remainder(17, 5));
+console.log(remainder(13, 72));
+console.log(remainder(13, 0));
+console.log('*******************************');
+
+// ************************* Nr 74 *****************************
+
+// Remove all exclamation marks from the end of sentence.
+
+function remove(string) {
+  // if (string[string.length - 1] !== '!') return string;
+
+  // let i = string.length - 1;
+
+  // while (i >= 0 && string[i] === '!') {
+  //   i--;
+  // }
+  // return string.slice(0, i + 1);
+
+  return string.replace(/!+$/, '');
+}
+
+console.log(remove('Hi!'));
+console.log(remove('!Hi'));
+console.log(remove('213!Hi!'));
+console.log(remove('213!Hi!!!!'));
+console.log('********************************');

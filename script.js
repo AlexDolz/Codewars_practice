@@ -1801,3 +1801,45 @@ console.log(remove('!Hi'));
 console.log(remove('213!Hi!'));
 console.log(remove('213!Hi!!!!'));
 console.log('********************************');
+
+// *************************** Nr 75 ***************************
+
+// Schreibe eine Funktion in JavaScript, die überprüft, ob eine gegebene Zeichenkette ein Palindrom ist. Ein Palindrom ist ein Wort, das vorwärts und rückwärts gleich ist (z. B. "radar" oder "level"). Die Funktion sollte keine Groß-/Kleinschreibung beachten.
+
+function isPalindrome3(string) {
+  string = string.toLowerCase();
+  return string === string.split('').reverse().join('');
+}
+
+console.log(isPalindrome3('Radar')); // true
+console.log(isPalindrome3('hello')); // false
+console.log(isPalindrome3('Level')); // true
+console.log(isPalindrome3('world')); // false
+console.log('********************************');
+
+// *************************** Nr 76 ***************************
+
+// Schreibe eine Funktion, die das häufigste Element in einem Array findet und zurückgibt.
+
+function mostFrequentElement(arr) {
+  let map = new Map();
+  let maxCount = 0;
+  let mostFrequent = null;
+
+  for (let num of arr) {
+    let count = (map.get(num) || 0) + 1;
+    map.set(num, count);
+
+    if (count > maxCount) {
+      maxCount = count;
+      mostFrequent = num;
+    }
+  }
+
+  return mostFrequent;
+}
+
+console.log(mostFrequentElement([1, 3, 2, 3, 4, 3, 5, 1])); // 3
+console.log(mostFrequentElement(['a', 'b', 'a', 'c', 'a', 'b'])); // "a"
+console.log(mostFrequentElement([true, false, false, true, true])); // true
+console.log('*********************************');

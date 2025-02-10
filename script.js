@@ -1843,3 +1843,118 @@ console.log(mostFrequentElement([1, 3, 2, 3, 4, 3, 5, 1])); // 3
 console.log(mostFrequentElement(['a', 'b', 'a', 'c', 'a', 'b'])); // "a"
 console.log(mostFrequentElement([true, false, false, true, true])); // true
 console.log('*********************************');
+
+// *********************** Nr 77 ********************************
+
+// Write a simple regex to validate a username. Allowed characters are:
+
+// lowercase letters,
+// numbers,
+// underscore
+// Length should be between 4 and 16 characters (both included).
+
+function validateUsr(username) {
+  const res = /^[a-z0-9_]{4,16}$/.test(username);
+  return res;
+}
+
+console.log(validateUsr('assddad'));
+console.log(validateUsr('a'));
+console.log(validateUsr('Hadsgs'));
+console.log('*****************************');
+
+// ****************************** Nr 78 **************************
+
+// Complete the method which accepts an array of integers, and returns one of the following:
+
+// "yes, ascending" - if the numbers in the array are sorted in an ascending order
+// "yes, descending" - if the numbers in the array are sorted in a descending order
+// "no" - otherwise
+// You can assume the array will always be valid, and there will always be one correct answer.
+
+function isSortedAndHow(array) {
+  let ascending = true;
+  let descending = true;
+
+  for (let i = 1; i < array.length; i++) {
+    if (array[i] > array[i - 1]) descending = false;
+    if (array[i] < array[i - 1]) ascending = false;
+  }
+
+  if (ascending) return `yes, ascending`;
+  if (descending) return `yes, descending`;
+  return `no`;
+}
+console.log(isSortedAndHow([1, 2]));
+console.log(isSortedAndHow([15, 7, 3, -8]));
+console.log(isSortedAndHow([4, 2, 30]));
+console.log('**********************************');
+
+// ************************ Nr 79 **************************************
+
+// Given two numbers and an arithmetic operator (the name of it, as a string), return the result of the two numbers having that operator used on them.
+
+// a and b will both be positive integers, and a will always be the first number in the operation, and b always the second.
+
+// The four operators are "add", "subtract", "divide", "multiply".
+
+// A few examples:(Input1, Input2, Input3 --> Output)
+
+// 5, 2, "add"      --> 7
+// 5, 2, "subtract" --> 3
+// 5, 2, "multiply" --> 10
+// 5, 2, "divide"   --> 2.5
+// Try to do it without using if statements!
+
+function arithmetic(a, b, operator) {
+  const operations = {
+    add: (x, y) => x + y,
+    subtract: (x, y) => x - y,
+    multiply: (x, y) => x * y,
+    divide: (x, y) => x / y,
+  };
+
+  return operations[operator](a, b);
+}
+
+// const arithmetic2 = (a, b, operator) =>
+//   ({
+//     add: a + b,
+//     subtract: a - b,
+//     multiply: a * b,
+//     divide: a / b,
+//   }[operator]);
+
+console.log(arithmetic(1, 2, 'add'));
+console.log(arithmetic(8, 2, 'subtract'));
+console.log(arithmetic(5, 2, 'multiply'));
+console.log(arithmetic(8, 2, 'divide'));
+console.log('********************************');
+
+// ******************************* Nr 80 ******************************
+
+// Write a function that takes three arguments:
+
+// a — the first number,
+// b — the second number,
+// operation — a string that determines which operation to perform on the numbers ("modulo", "power", "min", "max").
+// Implement the operation based on the value of operation. Here's what each operation should do:
+
+// "modulo": return the remainder of dividing a by b.
+// "power": return a raised to the power of b (a ^ b).
+// "min": return the minimum of the two numbers.
+// "max": return the maximum of the two numbers.
+
+const operationResult = (a, b, operator) =>
+  ({
+    modulo: a % b,
+    power: a ** b,
+    min: Math.min(a, b),
+    max: Math.max(a, b),
+  }[operator]);
+
+console.log(operationResult(5, 3, 'modulo')); // 2
+console.log(operationResult(2, 3, 'power')); // 8
+console.log(operationResult(5, 3, 'min')); // 3
+console.log(operationResult(5, 3, 'max')); // 5
+console.log('************************************');

@@ -2015,3 +2015,88 @@ function reverseLetter(str) {
 console.log(reverseLetter('krishan'));
 console.log(reverseLetter('ultr53o?n'));
 console.log(reverseLetter('ab23c'));
+console.log('*******************************');
+
+// **************************** Nr 83 *******************************
+
+// You have an array of objects representing users:
+
+// Write a function that returns only the users who are 18 years old or older.
+
+const users = [
+  { name: 'Alice', age: 25 },
+  { name: 'Bob', age: 17 },
+  { name: 'Charlie', age: 30 },
+];
+
+function adultUsers(users) {
+  return users.filter(user => user.age > 17);
+}
+
+console.log(adultUsers(users));
+console.log('******************************');
+
+// ****************************** Nr 84 ******************************
+
+// Write a function that takes a string as input and returns the longest word in the string.
+
+function findLongestWord(str) {
+  let longestWord = '';
+  const array = str.split(' ');
+
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].length > longestWord.length) {
+      longestWord = array[i];
+    }
+  }
+  return longestWord;
+}
+
+console.log(findLongestWord('The quick brown fox jumps over the lazy dog'));
+console.log('**********************************');
+
+// ******************************* Nr 85 ******************************
+
+// Write a function that takes an array and returns a new array with duplicate values removed.
+
+function removeDuplicates2(arr) {
+  // return [...new Set(arr)];
+
+  let seen = {};
+  let uniq = [];
+
+  for (num of arr) {
+    if (!seen[num]) {
+      uniq.push(num);
+      seen[num] = true;
+    }
+  }
+  return uniq;
+}
+
+console.log(removeDuplicates2([1, 2, 2, 3, 4, 4, 5]));
+console.log('**************************');
+
+// **************************** Nr 86 *********************************
+
+// Write a function that takes a number as input and returns the number reversed.
+
+function reverseNumber(num) {
+  return +num.toString().split('').reverse().join('');
+}
+
+console.log(reverseNumber(12345));
+console.log('***************************');
+
+// ****************************** Nr 87 ******************************
+// Write a function that checks if a given string is a palindrome (i.e., it reads the same forwards and backwards, ignoring spaces and case).
+
+function isPalindrome4(str) {
+  const cleanedStr = str.toLowerCase().replace(/[^a-z0-9]/g, '');
+  return cleanedStr === cleanedStr.split('').reverse().join('');
+}
+
+console.log(isPalindrome4('A man a plan a canal Panama'));
+console.log(isPalindrome4('hello'));
+console.log(isPalindrome4('RACECAR'));
+console.log('***************************');

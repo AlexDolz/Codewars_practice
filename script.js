@@ -2177,3 +2177,38 @@ console.log(removeDuplicates3([1, 2, 2, 3, 4, 4, 5])); // Output: [1, 2, 3, 4, 5
 console.log(removeDuplicates3(['apple', 'banana', 'apple'])); // Output: ["apple", "banana"]
 console.log(removeDuplicates3([])); // Output: []
 console.log('***************************');
+
+// ****************************** Nr 91 ******************************
+
+// Check if Two Strings Are Anagrams
+// Write a function that checks if two strings are anagrams (contain the same letters in different orders).
+
+function normalizeAndSort(str) {
+  return str.toLowerCase().replace(/\s/g, '').split('').sort().join('');
+}
+function isAnagram(str1, str2) {
+  return normalizeAndSort(str1) === normalizeAndSort(str2);
+}
+
+console.log(isAnagram('listen', 'silent')); // Output: true
+console.log(isAnagram('hello', 'world')); // Output: false
+console.log(isAnagram('rail safety', 'fairy tales')); // Output: true
+console.log('**************************');
+
+// ********************************* Nr 92 *****************************
+
+// Find the Missing Number in an Array
+// Write a function that takes an array containing n unique numbers in the range 1 to n+1 (one number is missing) and finds the missing number.
+
+function findMissingNumber(arr) {
+  const maxNum = Math.max(...arr);
+  const totalSum = (maxNum * (maxNum + 1)) / 2;
+  const arrSum = arr.reduce((sum, num) => sum + num, 0);
+
+  return totalSum - arrSum;
+}
+
+console.log(findMissingNumber([1, 2, 4, 5])); // Output: 3
+console.log(findMissingNumber([3, 7, 1, 2, 8, 4, 5])); // Output: 6
+console.log(findMissingNumber([1, 2, 3, 4, 5])); // Output: 0
+console.log('******************************');

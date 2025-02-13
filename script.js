@@ -2100,3 +2100,80 @@ console.log(isPalindrome4('A man a plan a canal Panama'));
 console.log(isPalindrome4('hello'));
 console.log(isPalindrome4('RACECAR'));
 console.log('***************************');
+
+// ******************************** Nr 88 ****************************
+
+function secondLargest(arr) {
+  // const uniq = [...new Set(arr)];
+
+  // if (uniq.length <= 1) return null;
+
+  // const sorted = uniq.slice().sort((a, b) => b - a);
+  // return sorted[1];
+
+  let first = -Infinity;
+  let second = -Infinity;
+
+  for (let num of arr) {
+    if (num > first) {
+      second = first;
+      first = num;
+    } else if (num > second && num !== first) {
+      second = num;
+    }
+  }
+
+  return second === -Infinity ? null : second;
+}
+
+console.log(secondLargest([10, 5, 8, 20, 15])); // Output: 15
+console.log(secondLargest([10, 10, 10]));
+console.log(secondLargest([10, 5, 8, 20, 20, 15, 15])); // Output: 15
+console.log(secondLargest([4, 1, 2, 3])); // Output: 3
+console.log(secondLargest([10])); // Output: null
+console.log('***************************************');
+
+// *************************** Nr 89 *******************************
+// Count Vowels in a String
+// Write a function that takes a string and returns the number of vowels (a, e, i, o, u) in it.
+
+function countVowels(str) {
+  const vowels = 'aeiou';
+  let count = 0;
+  str = str.toLowerCase();
+
+  for (let char of str) {
+    if (vowels.includes(char)) {
+      count++;
+    }
+  }
+
+  return count;
+}
+
+console.log(countVowels('Hello World')); // Output: 3
+console.log(countVowels('Javascript')); // Output: 3
+console.log(countVowels('Sky')); // Output: 0
+console.log('****************************************');
+
+// ******************************* Nr 90 ****************************
+
+//Remove Duplicates from an Array
+// Write a function that removes duplicate values from an array and returns a new array with only unique values.
+
+function removeDuplicates3(arr) {
+  return [...new Set(arr)];
+
+  // let uniq = [];
+  // for (let num of arr) {
+  //   if (!uniq.includes(num)) {
+  //     uniq.push(num);
+  //   }
+  // }
+  // return uniq;
+}
+
+console.log(removeDuplicates3([1, 2, 2, 3, 4, 4, 5])); // Output: [1, 2, 3, 4, 5]
+console.log(removeDuplicates3(['apple', 'banana', 'apple'])); // Output: ["apple", "banana"]
+console.log(removeDuplicates3([])); // Output: []
+console.log('***************************');

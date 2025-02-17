@@ -2275,3 +2275,56 @@ console.log(
 console.log(mostFrequentElement([7, 7, 8, 8, 9, 9])); // Output: 7, 8, or 9 (any of them)
 console.log(mostFrequentElement([])); // Output: null
 console.log('*********************************************');
+// ************************* Nr 95 *************************************
+
+// Find the Intersection of Two Arrays
+// Write a function that takes two arrays and returns a new array containing the common elements (intersection) between them. The result should not have duplicates.
+
+function arrayIntersection(arr1, arr2) {
+  let uniqueElem1 = new Set(arr1);
+  let uniqueElem2 = new Set(arr2);
+  let commonEl = [];
+
+  for (let elem of uniqueElem1) {
+    if (uniqueElem2.has(elem)) {
+      commonEl.push(elem);
+    }
+  }
+  return commonEl;
+}
+
+console.log(arrayIntersection([1, 2, 3, 4], [3, 4, 5, 6])); // Output: [3, 4]
+console.log(
+  arrayIntersection(['apple', 'banana', 'cherry'], ['banana', 'cherry', 'date'])
+); // Output: ['banana', 'cherry']
+console.log(arrayIntersection([1, 2, 3], [4, 5, 6])); // Output: []
+console.log(arrayIntersection([], [1, 2, 3])); // Output: []
+console.log(arrayIntersection([1, 2, 2, 3], [2, 2, 3, 4])); // Output: [2, 3] (no duplicates)
+console.log('***************************************');
+
+// ************************* Nr 96 ***********************************
+
+// Flatten an Array
+// Problem:
+// Write a function that takes an array that can contain nested arrays and returns a new array with all elements flattened into a single array.
+
+function flattenArray(arr) {
+  // let result = [];
+
+  // for (let elem of arr) {
+  //   if (Array.isArray(elem)) {
+  //     result = result.concat(flattenArray(elem));
+  //   } else {
+  //     result.push(elem);
+  //   }
+  // }
+
+  // return result;
+  return arr.flat(Infinity);
+}
+
+console.log(flattenArray([1, [2, 3], [4, [5, 6]]]));
+// Output: [1, 2, 3, 4, 5, 6]
+
+console.log(flattenArray([['a', 'b'], 'c', ['d', 'e']]));
+// Output: ['a', 'b', 'c', 'd', 'e']

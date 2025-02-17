@@ -2212,3 +2212,66 @@ console.log(findMissingNumber([1, 2, 4, 5])); // Output: 3
 console.log(findMissingNumber([3, 7, 1, 2, 8, 4, 5])); // Output: 6
 console.log(findMissingNumber([1, 2, 3, 4, 5])); // Output: 0
 console.log('******************************');
+
+// ***************************** Nr 93 *******************************
+
+// Find the First Non-Repeating Character
+// Write a function that finds the first non-repeating character in a given string and returns it. If all characters are repeating, return null.
+
+function firstNonRepeatingChar(str) {
+  let charCount = {};
+
+  for (let char of str) {
+    // if (!charCount[char]) {
+    //   charCount[char] = 1;
+    // } else {
+    //   charCount[char] += 1;
+    // }
+    charCount[char] = (charCount[char] || 0) + 1;
+  }
+
+  for (let char of str) {
+    if (charCount[char] === 1) {
+      return char;
+    }
+  }
+
+  return null;
+}
+
+console.log(firstNonRepeatingChar('swiss')); // Output: "w"
+console.log(firstNonRepeatingChar('racecars')); // Output: "e"
+console.log(firstNonRepeatingChar('aabbcc')); // Output: null
+console.log('*****************************');
+
+// ************************** Nr 94 ************************************
+
+// Find the Most Frequent Element in an Array
+// Write a function that takes an array and returns the most frequently occurring element. If there are multiple elements with the same highest frequency, return any one of them.
+
+function mostFrequentElement(arr) {
+  if (arr.length === 0) return null;
+
+  let elemCount = {};
+  let maxCount = 0;
+  let mostFrequent = null;
+
+  for (let elem of arr) {
+    elemCount[elem] = (elemCount[elem] || 0) + 1;
+
+    if (elemCount[elem] > maxCount) {
+      maxCount = elemCount[elem];
+      mostFrequent = elem;
+    }
+  }
+
+  return mostFrequent;
+}
+
+console.log(mostFrequentElement([1, 3, 2, 3, 4, 1, 3])); // Output: 3
+console.log(
+  mostFrequentElement(['apple', 'banana', 'apple', 'orange', 'banana', 'apple'])
+); // Output: "apple"
+console.log(mostFrequentElement([7, 7, 8, 8, 9, 9])); // Output: 7, 8, or 9 (any of them)
+console.log(mostFrequentElement([])); // Output: null
+console.log('*********************************************');

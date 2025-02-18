@@ -2328,3 +2328,82 @@ console.log(flattenArray([1, [2, 3], [4, [5, 6]]]));
 
 console.log(flattenArray([['a', 'b'], 'c', ['d', 'e']]));
 // Output: ['a', 'b', 'c', 'd', 'e']
+console.log('***********************************');
+
+// ****************************** Nr 97 *******************************
+// Find the First Repeated Character in a String
+// Write a function that takes a string and returns the first repeated character. If there are no repeated characters, return null.
+
+function firstRepeatedChar(str) {
+  let seen = new Set();
+
+  for (let char of str) {
+    if (seen.has(char)) {
+      return char;
+    }
+    seen.add(char);
+  }
+  return null;
+}
+
+console.log(firstRepeatedChar('swiss')); // Output: "s"
+console.log(firstRepeatedChar('abcdef')); // Output: null
+console.log(firstRepeatedChar('hello')); // Output: "l"
+console.log(firstRepeatedChar('racecar')); // Output: "c"
+console.log('***************************************');
+
+// **************************** Nr 98 *********************************
+
+function longestWord(str) {
+  // const arr = str.split(' ');
+  // let longest = '';
+
+  // for (word of arr) {
+  //   if (word.length > longest.length) longest = word;
+  // }
+  // return longest;
+
+  return str
+    .split(' ')
+    .reduce(
+      (longest, current) =>
+        current.length > longest.length ? current : longest,
+      ''
+    );
+}
+
+console.log(longestWord('The quick brown fox jumps over the lazy dog'));
+// Output: "quick"
+
+console.log(longestWord('Hello world'));
+// Output: "Hello"
+
+console.log(longestWord('I am a developer'));
+// Output: "developer"
+console.log('***********************************');
+
+// ****************************** Nr 99 *******************************
+
+// Find the First Unique Character
+// Write a function that finds the first unique character in a string. A unique character is one that appears only once in the string.
+
+function firstUniqueCharacter(str) {
+  let charCount = {};
+
+  for (let char of str) {
+    charCount[char] = (charCount[char] || 0) + 1;
+  }
+
+  for (let char of str) {
+    if (charCount[char] === 1) {
+      return char;
+    }
+  }
+  return null;
+}
+
+console.log(firstUniqueCharacter('swiss')); // Output: "w"
+console.log(firstUniqueCharacter('racecars')); // Output: "e"
+console.log(firstUniqueCharacter('aabbcc')); // Output: null
+console.log(firstUniqueCharacter('hello')); // Output: "h"
+console.log('*********************************************');

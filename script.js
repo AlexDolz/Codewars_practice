@@ -2407,3 +2407,27 @@ console.log(firstUniqueCharacter('racecars')); // Output: "e"
 console.log(firstUniqueCharacter('aabbcc')); // Output: null
 console.log(firstUniqueCharacter('hello')); // Output: "h"
 console.log('*********************************************');
+
+// *************************** Nr 100 ********************************
+
+// Group Numbers by Parity
+// Write a function that takes an array of numbers and groups them by parity (even or odd). The function should return an object with two properties: even and odd. The values of these properties should be arrays that contain the even and odd numbers, respectively.
+
+function groupByParity(arr) {
+  let oddArr = [];
+  let evenArr = [];
+
+  arr.map(num => (num % 2 === 0 ? evenArr.push(num) : oddArr.push(num)));
+
+  return { even: evenArr, odd: oddArr };
+}
+
+console.log(groupByParity([1, 2, 3, 4, 5, 6]));
+// Output: { even: [2, 4, 6], odd: [1, 3, 5] }
+
+console.log(groupByParity([10, 15, 22, 31]));
+// Output: { even: [10, 22], odd: [15, 31] }
+
+console.log(groupByParity([7, 9, 11]));
+// Output: { even: [], odd: [7, 9, 11] }
+console.log('****************************************');

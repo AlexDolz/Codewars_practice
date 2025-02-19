@@ -2431,3 +2431,77 @@ console.log(groupByParity([10, 15, 22, 31]));
 console.log(groupByParity([7, 9, 11]));
 // Output: { even: [], odd: [7, 9, 11] }
 console.log('****************************************');
+
+// ***************************** Nr 101 ********************************
+
+// Find Duplicates in an Array
+// Write a function that takes an array and returns an array of all duplicate elements (each appearing only once in the result).
+
+function findDuplicates(arr) {
+  // let newArr = [];
+  // let elemCount = {};
+
+  // for (let elem of arr) {
+  //   elemCount[elem] = (elemCount[elem] || 0) + 1;
+  // }
+
+  // for (let elem in elemCount) {
+  //   if (elemCount[elem] > 1) {
+  //     newArr.push(+elem);
+  //   }
+  // }
+  // return newArr;
+
+  return [
+    ...new Set(arr.filter((num, index, self) => self.indexOf(num) !== index)),
+  ];
+}
+
+console.log(findDuplicates([1, 2, 3, 4, 5, 2, 3, 6, 7, 8, 3]));
+// Output: [2, 3]
+console.log(findDuplicates([10, 20, 30, 40, 50])); // Output: []
+console.log(findDuplicates([5, 5, 5, 5, 5])); // Output: [5]
+console.log(findDuplicates([1, 2, 3, 1, 2, 3, 4, 4])); // Output: [1, 2, 3, 4]
+console.log('********************************');
+
+// *************************** Nr 102 ********************************
+
+// Convert an Array of Strings to Title Case
+// Write a function that takes an array of strings and returns a new array where each string is converted to title case (first letter capitalized).
+
+function titleCase(arr) {
+  return arr.map(str =>
+    str
+      .split(' ')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(' ')
+  );
+}
+
+console.log(titleCase(['hello', 'world', 'javascript']));
+// Output: ["Hello", "World", "Javascript"]
+console.log('******************************');
+
+// *************************** Nr 103 **********************************
+
+// Find the Intersection of Two Arrays
+// Write a function that takes two arrays and returns an array containing only the common elements (without duplicates).
+
+function arrayIntersection(arr1, arr2) {
+  let uniqueElem1 = new Set(arr1);
+  let uniqueElem2 = new Set(arr2);
+  let commonArr = [];
+
+  // for (let elem of uniqueElem1) {
+  //   if (uniqueElem2.has(elem)) {
+  //     commonArr.push(elem);
+  //   }
+  // }
+  // return commonArr;
+
+  return [...uniqueElem1].filter(elem => uniqueElem2.has(elem));
+}
+
+console.log(arrayIntersection([1, 2, 3, 4], [3, 4, 5, 6]));
+// Output: [3, 4]
+console.log('**********************************');

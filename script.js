@@ -2502,6 +2502,36 @@ function arrayIntersection(arr1, arr2) {
   return [...uniqueElem1].filter(elem => uniqueElem2.has(elem));
 }
 
-console.log(arrayIntersection([1, 2, 3, 4], [3, 4, 5, 6]));
-// Output: [3, 4]
+console.log(arrayIntersection([1, 2, 3, 4], [3, 4, 5, 6])); // Output: [3, 4]
+console.log('**********************************');
+
+// *********************** Nr 104 ************************************
+
+// Find the Second Smallest Number in an Array
+// Write a function that takes an array of numbers and returns the second smallest number. If there is no second smallest number, return null.
+
+function secondSmallest(arr) {
+  // let uniqArr = [...new Set(arr)];
+  // if (uniqArr.length < 2) return null;
+  // return [...uniqArr].sort((a, b) => a - b)[1];
+
+  let first = Infinity,
+    second = Infinity;
+
+  for (let num of arr) {
+    if (num < first) {
+      second = first;
+      first = num;
+    } else if (num < second && num !== first) {
+      second = num;
+    }
+  }
+
+  return second === Infinity ? null : second;
+}
+
+console.log(secondSmallest([4, 1, 7, 3, 9])); // Output: 3
+console.log(secondSmallest([10, 5, 10, 2, 8])); // Output: 5
+console.log(secondSmallest([1])); // Output: null
+console.log(secondSmallest([5, 5, 5, 5])); // Output: null
 console.log('**********************************');

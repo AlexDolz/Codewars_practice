@@ -2535,3 +2535,152 @@ console.log(secondSmallest([10, 5, 10, 2, 8])); // Output: 5
 console.log(secondSmallest([1])); // Output: null
 console.log(secondSmallest([5, 5, 5, 5])); // Output: null
 console.log('**********************************');
+
+// ************************ Nr 105 ************************************
+// Remove Falsy Values from an Array
+// Write a function that removes falsy values (false, 0, '', null, undefined, NaN) from an array.
+
+function cleanArray(arr) {
+  return arr.filter(Boolean);
+}
+
+console.log(cleanArray([0, 1, false, 2, '', 3, 'hello', null, undefined, NaN])); // Output: [1, 2, 3, "hello"]
+console.log('*****************************');
+
+// ***************************** Nr 106 ******************************
+// Find the Most Frequent Character in a String
+// Write a function that returns the most frequent character in a given string.
+
+function mostFrequentChar(string) {
+  let charCount = {};
+  let maxChar = '';
+  let maxCount = 0;
+
+  for (let char of string) {
+    charCount[char] = (charCount[char] || 0) + 1;
+
+    if (charCount[char] > maxCount) {
+      maxCount = charCount[char];
+      maxChar = char;
+    }
+  }
+
+  return maxChar;
+}
+
+console.log(mostFrequentChar('javascript')); // Output: "a" (or "j" or "v" since they all appear once)
+console.log(mostFrequentChar('hello world')); // Output: "l"
+console.log('***********************************');
+
+// **************************** Nr 107 ****************************
+
+// Find All Anagrams of a Word in an Array
+// Write a function that takes a word and an array of words. It should return an array containing only the words that are anagrams of the given word.
+
+function findAnagrams(word, words) {
+  const sortedWord = word.split('').sort().join('');
+  console.log(sortedWord);
+
+  return words.filter(str => str.split('').sort().join('') === sortedWord);
+}
+
+console.log(
+  findAnagrams('listen', ['enlist', 'google', 'silent', 'tinsel', 'banana'])
+); // Output: ["enlist", "silent", "tinsel"]
+console.log('***************************************');
+
+// ********************************* Nr 108 ***************************
+
+// Remove Duplicates from an Array
+// Write a function that takes an array and returns a new array with duplicates removed.
+
+function removeDuplicates4(arr) {
+  // return [...new Set(arr)];
+
+  const uniqArr = [];
+  for (let elem of arr) {
+    if (!uniqArr.includes(elem)) {
+      uniqArr.push(elem);
+    }
+  }
+
+  return uniqArr;
+}
+
+console.log(removeDuplicates4([1, 2, 2, 3, 4, 4, 5])); // Output: [1, 2, 3, 4, 5]
+console.log(removeDuplicates4(['apple', 'banana', 'apple', 'orange'])); // Output: ["apple", "banana", "orange"]
+console.log('*************************************');
+
+// **************************** Nr 109 ********************************
+
+// Capitalize the First Letter of Each Word
+// Write a function that takes a string and returns it with the first letter of each word capitalized.
+
+function capitalizeWords(str) {
+  return str
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
+
+console.log(capitalizeWords('hello world')); // Output: "Hello World");
+console.log(capitalizeWords('javascript is fun')); // Output: "Javascript Is Fun");
+console.log('*********************************************');
+
+// ***************************** Nr 110 ********************************
+
+// Find the Most Frequent Element in an Array
+// Write a function that takes an array and returns the most frequent element.
+
+function mostFrequent2(arr) {
+  let elemCount = {};
+  let maxCount = 0;
+  let maxElem = '';
+
+  for (let elem of arr) {
+    elemCount[elem] = (elemCount[elem] || 0) + 1;
+    if (elemCount[elem] > maxCount) {
+      maxCount = elemCount[elem];
+      maxElem = elem;
+    }
+  }
+  return maxElem;
+}
+
+console.log(mostFrequent2([1, 3, 2, 3, 4, 1, 3])); // Output: 3);
+console.log(
+  mostFrequent2(['apple', 'banana', 'apple', 'orange', 'banana', 'apple'])
+); // Output: "apple");
+console.log('**************************************');
+
+// *************************** Nr 111 **********************************
+
+// Reverse a String Without Using .reverse()
+// Write a function that takes a string and returns it reversed.
+
+function reversedString(str) {
+  let reversedStr = '';
+
+  for (let i = str.length - 1; i >= 0; i--) {
+    reversedStr += str[i];
+  }
+  return reversedStr;
+}
+
+console.log(reversedString('hello')); // Output: "olleh");
+console.log(reversedString('world')); // Output: "dlrow");
+console.log('**********************************************');
+
+// ************************** Nr 112 ***********************************
+
+// Check if Two Strings Are Anagrams
+// Write a function that checks if two strings are anagrams (contain the same letters in a different order).
+
+function isAnagram2(str, str2) {
+  const sortedStr = str.split('').sort().join('');
+  return str2.split('').sort().join('') === sortedStr;
+}
+
+console.log(isAnagram2('listen', 'silent')); // Output: true);
+console.log(isAnagram2('hello', 'world')); // Output: false);
+console.log('****************************************');

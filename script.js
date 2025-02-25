@@ -2684,3 +2684,46 @@ function isAnagram2(str, str2) {
 console.log(isAnagram2('listen', 'silent')); // Output: true);
 console.log(isAnagram2('hello', 'world')); // Output: false);
 console.log('****************************************');
+
+// *************************** Nr 113 ********************************
+
+// Find the Second Largest Number
+// Write a function that finds the second largest number in an array.
+
+function secondLargest(arr) {
+  const uniqueArr = [...new Set(arr)].sort((a, b) => b - a);
+  return uniqueArr.length < 2 ? null : uniqueArr[1];
+}
+
+console.log(secondLargest([10, 5, 8, 20, 15])); // Output: 15
+
+console.log(secondLargest([3, 7, 7, 5, 2])); // Output: 5
+console.log('************************************');
+
+// *************************** Nr 114 *********************************
+
+// Find Palindromes in an Array
+// Write a function that takes an array of words and returns only the palindromes (words that are the same forward and backward).
+
+function findPalindromes(words) {
+  return words.filter(word => word === word.split('').reverse().join(''));
+}
+
+console.log(findPalindromes(['racecar', 'hello', 'madam', 'world', 'level'])); // Output: ["racecar", "madam", "level"]
+console.log('****************************************');
+// ******************************* Nr 115 *****************************
+
+// Capitalize the First Letter of Each Word
+// Write a function that takes a sentence (string) and returns a new string with the first letter of each word capitalized.
+
+function capitalizeWords(str) {
+  return str
+    .split(' ')
+    .map(word => word[0].toUpperCase() + word.slice(1))
+    .join(' ');
+}
+
+console.log(capitalizeWords('javascript is awesome')); // Output: "Javascript Is Awesome"
+
+console.log(capitalizeWords('hello world')); // Output: "Hello World"
+console.log('****************************************');

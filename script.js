@@ -2727,3 +2727,50 @@ console.log(capitalizeWords('javascript is awesome')); // Output: "Javascript Is
 
 console.log(capitalizeWords('hello world')); // Output: "Hello World"
 console.log('****************************************');
+
+// *************************** Nr 116 **********************************
+
+// Find the Longest Word in a Sentence
+// Write a function that takes a sentence (string) and returns the longest word.
+
+function findLongestWord2(str) {
+  // let charCount = 0;
+  // let longestWord = '';
+  // const arr = str.split(' ');
+
+  // for (let char of arr) {
+  //   if (charCount < char.length) {
+  //     charCount = char.length;
+  //     longestWord = char;
+  //   }
+  // }
+  // return longestWord;
+
+  return str
+    .split(' ')
+    .reduce(
+      (longest, word) => (word.length > longest.length ? word : longest),
+      ''
+    );
+}
+
+console.log(findLongestWord2('The quick brown fox jumps over the lazy dog')); // Output: "quick"
+console.log('**************************************');
+
+// ****************************** Nr 117 *******************************
+
+// Convert an Object to an Array
+// Write a function that converts an object into an array of [key, value] pairs.
+
+function convertObjectToArray(object) {
+  // let arr = [];
+  // for (let key in object) {
+  //   arr.push([key, object[key]]);
+  // }
+  // return arr;
+
+  return Object.entries(object);
+}
+
+console.log(convertObjectToArray({ a: 1, b: 2, c: 3 })); // Output: [['a', 1], ['b', 2], ['c', 3]])
+console.log('************************************');

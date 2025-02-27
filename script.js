@@ -2833,3 +2833,86 @@ function areElementsUnique(arr) {
 console.log(areElementsUnique([1, 2, 3, 4, 5])); // Output: true);
 console.log(areElementsUnique([1, 2, 2, 4, 5])); // Output: false);
 console.log('*********************************');
+
+// *************************** Nr 122 **********************************
+
+// Find the Maximum Difference in an Array
+// Write a function that finds the maximum difference between any two numbers in an array.
+
+function maxDifference(arr) {
+  let max = Math.max(...arr);
+  let min = Math.min(...arr);
+  return max - min;
+}
+
+console.log(maxDifference([3, 10, 6, 15, 2])); // Output: 13 (15 - 2)
+console.log(maxDifference([1, 5, 9, 12])); // Output: 11 (12 - 1)
+console.log('************************************');
+
+// ************************* Nr 123 ************************************
+
+// Count the Occurrences of Each Character
+// Write a function that counts how many times each character appears in a string.
+
+function countChars(str) {
+  let charCount = {};
+
+  for (let char of str) {
+    charCount[char] = (charCount[char] || 0) + 1;
+  }
+  return charCount;
+}
+
+console.log(countChars('hello')); // Output: { h: 1, e: 1, l: 2, o: 1 }
+
+console.log(countChars('banana')); // Output: { b: 1, a: 3, n: 2 }
+console.log('**************************************');
+
+// ****************************** Nr 124 *******************************
+
+// Find the Missing Number
+// Given an array of numbers from 1 to N with one number missing, write a function to find the missing number.
+
+function findMissingNumber2(arr) {
+  const maxNum = Math.max(...arr);
+  const totalSum = (maxNum * (maxNum + 1)) / 2;
+  const arrSum = arr.reduce((sum, num) => sum + num, 0);
+
+  return totalSum - arrSum;
+}
+
+console.log(findMissingNumber2([1, 2, 3, 5])); // Output: 4
+console.log(findMissingNumber2([6, 1, 2, 8, 3, 4, 7, 10, 5])); // Output: 9
+console.log('*******************************');
+
+// *************************** Nr 125 **********************************
+
+// Check if a String is a Pangram
+// Write a function that checks if a string contains every letter of the alphabet at least once.
+
+function isPangram(str) {
+  const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+  const lowerStr = str.toLowerCase();
+
+  return alphabet.split('').every(char => lowerStr.includes(char));
+}
+
+console.log(isPangram('The quick brown fox jumps over the lazy dog')); // Output: true
+console.log(isPangram('Hello World!')); // Output: false
+console.log('*******************************************');
+
+// ********************** Nr 126 *************************************
+
+// Flatten a Nested Array
+// Write a function that flattens a nested array into a single array.
+
+function flattenArray2(arr) {
+  return arr.flat(Infinity);
+}
+
+console.log(flattenArray2([1, [2, 3], [4, [5, 6]]]));
+// Output: [1, 2, 3, 4, 5, 6]
+
+console.log(flattenArray2([[['a']], [['b']], 'c']));
+// Output: ['a', 'b', 'c']
+console.log('***************************************');

@@ -2774,3 +2774,62 @@ function convertObjectToArray(object) {
 
 console.log(convertObjectToArray({ a: 1, b: 2, c: 3 })); // Output: [['a', 1], ['b', 2], ['c', 3]])
 console.log('************************************');
+
+// **************************** Nr 118 *********************************
+// Find the Index of the First Vowel
+// Write a function that returns the index of the first vowel (a, e, i, o, u) in a given string. If no vowels are found, return -1.
+
+function firstVowelIndex(str) {
+  const vowels = 'aeiou';
+  // const arr = str.split('');
+
+  // for (let i = 0; i < arr.length; i++) {
+  //   if (vowels.includes(arr[i])) {
+  //     return i;
+  //   }
+  // }
+  // return -1;
+
+  return str.split('').findIndex(char => vowels.includes(char));
+}
+
+console.log(firstVowelIndex('hello')); // Output: 1);
+console.log(firstVowelIndex('rhythm')); // Output: -1);
+console.log('***************************');
+
+// ****************************** Nr 119 ******************************
+
+// Sum of Positive Numbers
+// Write a function that takes an array of numbers and returns the sum of only positive numbers.
+
+function sumPositiveNumbers(arr) {
+  return arr.reduce((sum, curr) => (curr > 0 ? curr + sum : sum), 0);
+}
+
+console.log(sumPositiveNumbers([-2, 5, -8, 12, -3, 7])); // Output: 24 (5 + 12 + 7))
+console.log('***********************************');
+
+// ***************************** Nr 120 *******************************
+
+// Reverse Words in a Sentence
+// Write a function that reverses the order of words in a given sentence.
+
+function reverseWords2(str) {
+  return str.split(' ').reverse().join(' ');
+}
+
+console.log(reverseWords2('Hello world this is JavaScript')); // Output: "JavaScript is this world Hello")
+console.log('****************************');
+
+// ************************** Nr 121 ***********************************
+
+// Check if All Elements in an Array Are Unique
+// Write a function that returns true if all elements in an array are unique, otherwise return false.
+
+function areElementsUnique(arr) {
+  return new Set(arr).size === arr.length;
+}
+
+console.log(areElementsUnique([1, 2, 3, 4, 5])); // Output: true);
+console.log(areElementsUnique([1, 2, 2, 4, 5])); // Output: false);
+console.log('*********************************');

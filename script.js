@@ -2916,3 +2916,68 @@ console.log(flattenArray2([1, [2, 3], [4, [5, 6]]]));
 console.log(flattenArray2([[['a']], [['b']], 'c']));
 // Output: ['a', 'b', 'c']
 console.log('***************************************');
+
+// ************************** Nr 127 **********************************
+// Find the Intersection of Two Arrays
+// Write a function that takes two arrays and returns a new array containing only the elements that appear in both arrays (without duplicates).
+
+function arrayIntersection2(arr1, arr2) {
+  let newArr = [];
+
+  for (let elem of arr1) {
+    if (arr2.includes(elem) && !newArr.includes(elem)) {
+      newArr.push(elem);
+    }
+  }
+  return newArr;
+}
+
+console.log(arrayIntersection2([1, 2, 3, 4], [3, 4, 5, 6])); // Output: [3, 4]
+
+console.log(
+  arrayIntersection2(
+    ['apple', 'banana', 'cherry'],
+    ['banana', 'cherry', 'date']
+  )
+); // Output: ['banana', 'cherry']
+console.log('************************************');
+
+// **************************** Nr 128 ********************************
+
+// Count the Number of Words in a String
+// Write a function that takes a string and returns the number of words in it. Assume words are separated by spaces.
+
+function wordCount(str) {
+  return str.split(' ').filter(word => word !== '').length;
+}
+
+console.log(wordCount('Hello world!')); // Output: 2
+console.log(wordCount('This is a simple sentence.')); // Output: 5
+console.log('*************************************');
+
+// ************************* Nr 129 ************************************
+
+// Validate a Password
+// Write a function that checks if a given password is strong. A strong password:
+
+// Must be at least 8 characters long
+// Must contain at least one uppercase letter
+// Must contain at least one lowercase letter
+// Must contain at least one digit
+// Must contain at least one special character (e.g., @, #, $, etc.)
+// The function should return true if the password is strong, otherwise false.
+
+function isStrongPassword(password) {
+  if (password.length < 8) return false;
+
+  const hasUppercase = /[A-Z]/.test(password);
+  const hasLowercase = /[a-z]/.test(password);
+  const hasDigit = /\d/.test(password);
+  const hasSpecialChar = /\W/.test(password);
+
+  return hasUppercase && hasLowercase && hasDigit && hasSpecialChar;
+}
+
+console.log(isStrongPassword('Hello@123')); // Output: true
+console.log(isStrongPassword('weakpass')); // Output: false
+console.log('**********************************');

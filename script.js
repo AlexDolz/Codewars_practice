@@ -2981,3 +2981,82 @@ function isStrongPassword(password) {
 console.log(isStrongPassword('Hello@123')); // Output: true
 console.log(isStrongPassword('weakpass')); // Output: false
 console.log('**********************************');
+
+// ************************* Nr 130 ***********************************
+
+// Find the First Non-Repeating Character
+// Write a function that returns the first non-repeating character in a string. If all characters repeat, return null.
+
+function firstUniqueChar(str) {
+  let charCount = {};
+
+  for (let char of str) {
+    charCount[char] = (charCount[char] || 0) + 1;
+  }
+
+  for (let char of str) {
+    if (charCount[char] === 1) return char;
+  }
+
+  return null;
+}
+
+console.log(firstUniqueChar('aabbccde')); // Output: "d");
+console.log(firstUniqueChar('aabbcc')); // Output: null);
+console.log('*****************************************');
+
+// ************************ Nr 131 ************************************
+
+// Flatten a Nested Array Without flat()
+// Write a function that flattens a deeply nested array without using .flat(Infinity).
+
+function flattenArray(arr) {
+  return arr.reduce(
+    (acc, val) =>
+      Array.isArray(val) ? acc.concat(flattenArray(val)) : acc.concat(val),
+    []
+  );
+}
+
+console.log(flattenArray([1, [2, [3, [4, 5]]]])); // Output: [1, 2, 3, 4, 5]
+
+console.log(flattenArray([[1, 2], [3, 4, [5, 6]], 7])); // Output: [1, 2, 3, 4, 5, 6, 7]
+console.log('**************************************');
+
+// ***************************** Nr 132 ********************************
+
+// Remove Duplicates from an Array
+// Write a function that takes an array of numbers and returns a new array with all the duplicates removed, preserving the order of the elements.
+
+// Requirements:
+// The function should not modify the original array.
+// You can use basic array methods like map(), filter(), or a Set, but do not use any external libraries.
+
+function removeDuplicates2(arr) {
+  return arr.filter((elem, index, arr) => arr.indexOf(elem) === index);
+}
+
+console.log(removeDuplicates2([1, 2, 2, 3, 4, 3, 5]));
+console.log('*****************************');
+
+// ************************ Nr 133 *************************************
+
+// Implement a Debounce Function
+// Implement a debounce function, which ensures that a function is only executed once in a given time frame, even if it's called multiple times.
+
+function debounce(fn, delay) {
+  let timeout;
+  return function (...args) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => fn(...args), delay);
+  };
+}
+
+const debouncedFn = debounce(() => console.log('Action!'), 300);
+
+debouncedFn();
+debouncedFn();
+debouncedFn();
+
+setTimeout(() => debouncedFn(), 500); // Output: "Action!" should be logged **only once** after 300ms, and another time after 500ms.
+console.log('**************************************');

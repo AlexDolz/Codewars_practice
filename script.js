@@ -3044,19 +3044,109 @@ console.log('*****************************');
 // Implement a Debounce Function
 // Implement a debounce function, which ensures that a function is only executed once in a given time frame, even if it's called multiple times.
 
-function debounce(fn, delay) {
-  let timeout;
-  return function (...args) {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => fn(...args), delay);
-  };
+// function debounce(fn, delay) {
+//   let timeout;
+//   return function (...args) {
+//     clearTimeout(timeout);
+//     timeout = setTimeout(() => fn(...args), delay);
+//   };
+// }
+
+// const debouncedFn = debounce(() => console.log('Action!'), 300);
+
+// debouncedFn();
+// debouncedFn();
+// debouncedFn();
+
+// setTimeout(() => debouncedFn(), 500); // Output: "Action!" should be logged **only once** after 300ms, and another time after 500ms.
+console.log('**************************************');
+
+// **************************** Nr 134 *********************************
+
+// Remove Duplicates from an Array
+// Write a function that removes duplicate values from an array without using Set.
+
+function removeDuplicates5(arr) {
+  return arr.filter((elem, index, arr) => arr.indexOf(elem) === index);
 }
 
-const debouncedFn = debounce(() => console.log('Action!'), 300);
+console.log(removeDuplicates5([1, 2, 2, 3, 4, 4, 5])); // Output: [1, 2, 3, 4, 5]
 
-debouncedFn();
-debouncedFn();
-debouncedFn();
+console.log(removeDuplicates5(['apple', 'banana', 'apple', 'orange'])); // Output: ['apple', 'banana', 'orange']
+console.log('***************************************');
 
-setTimeout(() => debouncedFn(), 500); // Output: "Action!" should be logged **only once** after 300ms, and another time after 500ms.
-console.log('**************************************');
+// ***************************** Nr 135 *******************************
+
+// Find the First Non-Repeating Character
+// Write a function that finds the first non-repeating character in a string.
+
+function firstNonRepeatingChar2(str) {
+  let countChar = {};
+
+  for (let char of str) {
+    countChar[char] = (countChar[char] || 0) + 1;
+  }
+
+  for (let char of str) {
+    if (countChar[char] === 1) return char;
+  }
+  return null;
+}
+
+console.log(firstNonRepeatingChar2('swiss')); // Output: "w"
+console.log(firstNonRepeatingChar2('racecars')); // Output: "e"
+console.log(firstNonRepeatingChar2('aabbcc')); // Output: null
+
+// ************************* Nr 136 ************************************
+
+// Reverse Words in a Sentence
+// Write a function that reverses the words in a given sentence without reversing the letters in the words.
+
+function reverseWords3(str) {
+  return str.split(' ').reverse().join(' ');
+}
+
+console.log(reverseWords3('Hello world this is JavaScript')); // Output: "JavaScript is this world Hello"
+console.log('*********************************');
+
+// ************************ Nr 137 *************************************
+
+// Validate a Password
+// Write a function that checks if a given password is strong. A strong password:
+// ✅ Must be at least 8 characters long
+// ✅ Must contain at least one uppercase letter
+// ✅ Must contain at least one lowercase letter
+// ✅ Must contain at least one digit
+// ✅ Must contain at least one special character (e.g., @, #, $, etc.)
+
+function isStrongPassword2(password) {
+  if (password.length < 8) return false;
+
+  const hasUppercase = /[A-Z]/.test(password);
+  const hasLowercase = /[a-z]/.test(password);
+  const hasDigit = /\d/.test(password);
+  const hasSpecialChar = /\W/.test(password);
+
+  return hasUppercase && hasLowercase && hasDigit && hasSpecialChar;
+}
+
+console.log(isStrongPassword2('Pass@123')); // Output: true
+console.log(isStrongPassword2('weakpass')); // Output: false
+console.log('*************************************');
+
+// ************************** Nr 138 ***********************************
+
+// Find the Missing Number in an Array
+// Given an array containing n distinct numbers from 1 to n+1, write a function to find the missing number.
+
+function findMissingNumber3(arr) {
+  const maxNum = Math.max(...arr);
+  const totalSum = (maxNum * (maxNum + 1)) / 2;
+  const arrSum = arr.reduce((acc, cur) => cur + acc, 0);
+
+  return totalSum - arrSum;
+}
+
+console.log(findMissingNumber3([1, 2, 4, 5, 6])); // Output: 3
+console.log(findMissingNumber3([3, 7, 1, 2, 8, 4, 5])); // Output: 6
+console.log('****************************************');

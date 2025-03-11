@@ -3150,3 +3150,104 @@ function findMissingNumber3(arr) {
 console.log(findMissingNumber3([1, 2, 4, 5, 6])); // Output: 3
 console.log(findMissingNumber3([3, 7, 1, 2, 8, 4, 5])); // Output: 6
 console.log('****************************************');
+
+// ************************ Nr 139 ************************************
+
+// Reverse a String Without Using .reverse()
+// Write a function that reverses a string manually (without using .reverse()).
+
+function reverseString2(str) {
+  // let reversedStr = '';
+
+  // for (let i = str.length - 1; i >= 0; i--) {
+  //   reversedStr += str[i];
+  // }
+  // return reversedStr;
+
+  return str.split('').reduce((rev, char) => char + rev, '');
+}
+
+console.log(reverseString2('hello')); // Output: "olleh"
+console.log(reverseString2('world')); // Output: "dlrow"
+console.log('**********************************');
+
+// *************************** Nr 140 **********************************
+
+// Find the Most Frequent Element in an Array
+// Write a function that finds the most frequently occurring element in an array.
+
+function mostFrequent3(arr) {
+  let elemCount = {};
+  let frequent = null;
+  let maxCount = 0;
+
+  for (let elem of arr) {
+    elemCount[elem] = (elemCount[elem] || 0) + 1;
+
+    if (elemCount[elem] > maxCount) {
+      maxCount = elemCount[elem];
+      frequent = elem;
+    }
+  }
+
+  return frequent;
+}
+
+console.log(mostFrequent3([1, 3, 2, 3, 4, 1, 3])); // Output: 3
+console.log(
+  mostFrequent3(['apple', 'banana', 'apple', 'orange', 'banana', 'apple'])
+); // Output: "apple"
+console.log('********************************');
+
+// *************************** Nr 141 **********************************
+
+// Check If Two Strings Are Anagrams
+// Write a function that checks if two given strings are anagrams of each other.
+
+function sortString(str) {
+  return str.split('').sort().join('');
+}
+
+function isAnagram3(word1, word2) {
+  if (word1.length !== word2.length) return false;
+
+  return sortString(word1) === sortString(word2);
+}
+
+console.log(isAnagram3('listen', 'silent')); // Output: true
+console.log(isAnagram3('hello', 'world')); // Output: false
+console.log('***************************************');
+
+// ***************************** Nr 142 ********************************
+
+// Find the First Repeating Character in a String
+// Write a function that returns the first repeating character in a string.
+
+function firstRepeatingChar(str) {
+  let seenChar = new Set();
+
+  for (let char of str) {
+    if (seenChar.has(char)) {
+      return char;
+    }
+    seenChar.add(char);
+  }
+  return null;
+}
+
+console.log(firstRepeatingChar('swiss')); // Output: "s"
+console.log(firstRepeatingChar('abcdef')); // Output: null
+console.log('********************************************');
+
+// ***************************** Nr 143 ********************************
+
+// Validate an Email Address
+// Write a function that validates whether a given string is a valid email address.
+
+function isValidEmail(email) {
+  return /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(email);
+}
+
+console.log(isValidEmail('test@example.com')); // Output: true
+console.log(isValidEmail('invalid-email@com')); // Output: false
+console.log('******************************************');

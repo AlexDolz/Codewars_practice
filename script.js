@@ -3251,3 +3251,105 @@ function isValidEmail(email) {
 console.log(isValidEmail('test@example.com')); // Output: true
 console.log(isValidEmail('invalid-email@com')); // Output: false
 console.log('******************************************');
+
+// ***************************** Nr 144 ********************************
+
+// Find the Missing Number in an Array
+// Write a function that takes an array of n unique numbers from 1 to n+1, with one number missing. Return the missing number.
+
+function findMissingNumber4(arr) {
+  const n = arr.length + 1;
+  const totalSum = (n * (n + 1)) / 2;
+  const arrSum = arr.reduce((sum, cur) => sum + cur, 0);
+
+  return totalSum - arrSum;
+}
+
+console.log(findMissingNumber4([1, 2, 4, 5])); // Output: 3
+console.log(findMissingNumber4([3, 7, 1, 2, 8, 4, 5])); // Output: 6
+console.log('***********************************');
+
+// *************************** Nr 145 **********************************
+
+// Find the Longest Word in a Sentence
+// Write a function that takes a sentence (string) and returns the longest word in it. If there are multiple words with the same length, return the first one found.
+
+function findLongestWord3(str) {
+  // let charCount = 0;
+  // let longestWord = '';
+  // const arr = str.split(' ');
+
+  // for (let word of arr) {
+  //   if (charCount < word.length) {
+  //     charCount = word.length;
+  //     longestWord = word;
+  //   }
+  // }
+
+  // return longestWord;
+  return str
+    .split(' ')
+    .reduce(
+      (longest, word) => (word.length > longest.length ? word : longest),
+      ''
+    );
+}
+
+console.log(findLongestWord3('The quick brown fox jumps over the lazy dog')); // Output: "jumps"
+console.log(findLongestWord3('JavaScript is awesome')); // Output: "JavaScript"
+console.log('************************************');
+
+// ********************** Nr 146 ************************************
+
+// Check if Two Strings Are Rotations of Each Other
+// Write a function that checks whether two given strings are rotations of each other.
+
+function areRotations(word1, word2) {
+  if (word1.length !== word2.length) return false;
+  return (word1 + word1).includes(word2);
+}
+
+console.log(areRotations('abcde', 'cdeab')); // Output: true
+console.log(areRotations('hello', 'lohel')); // Output: true
+console.log(areRotations('hello', 'world')); // Output: false
+console.log('****************************************');
+
+// ************************* Nr 147 ***********************************
+
+// Convert a Number to Roman Numerals
+// Write a function that converts an integer (1 to 3999) into Roman numerals.
+
+function toRoman(n) {
+  const romanNumerals = [
+    { value: 1000, numeral: 'M' },
+    { value: 900, numeral: 'CM' },
+    { value: 500, numeral: 'D' },
+    { value: 400, numeral: 'CD' },
+    { value: 100, numeral: 'C' },
+    { value: 90, numeral: 'XC' },
+    { value: 50, numeral: 'L' },
+    { value: 40, numeral: 'XL' },
+    { value: 10, numeral: 'X' },
+    { value: 9, numeral: 'IX' },
+    { value: 5, numeral: 'V' },
+    { value: 4, numeral: 'IV' },
+    { value: 1, numeral: 'I' },
+  ];
+
+  let result = '';
+
+  for (let i = 0; i < romanNumerals.length; i++) {
+    while (n >= romanNumerals[i].value) {
+      result += romanNumerals[i].numeral;
+      n -= romanNumerals[i].value;
+    }
+  }
+
+  return result;
+}
+
+console.log(toRoman(3)); // Output: "III"
+console.log(toRoman(9)); // Output: "IX"
+console.log(toRoman(58)); // Output: "LVIII"
+console.log(toRoman(1994)); // Output: "MCMXCIV"
+console.log('***********************************************');

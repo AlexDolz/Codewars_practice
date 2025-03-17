@@ -3353,3 +3353,60 @@ console.log(toRoman(9)); // Output: "IX"
 console.log(toRoman(58)); // Output: "LVIII"
 console.log(toRoman(1994)); // Output: "MCMXCIV"
 console.log('***********************************************');
+
+// ***************************** Nr 148 *******************************
+
+// Find the Second Largest Number
+// Write a function that takes an array of numbers and returns the second largest number.
+
+function secondLargest2(arr) {
+  let uniqArr = [...new Set(arr)].sort((a, b) => b - a);
+  return uniqArr.length > 1 ? uniqArr[1] : null;
+}
+
+console.log(secondLargest2([10, 5, 8, 20, 15])); // Output: 15
+console.log(secondLargest2([4, 1, 2, 2, 3])); // Output: 3
+console.log(secondLargest2([9])); // Output: null
+console.log(secondLargest2([10, 10, 10, 10])); // Output: null (no second distinct number)
+console.log(secondLargest2([-5, -1, -3, -2])); // Output: -2 (handles negative numbers)
+console.log(secondLargest2([100, 90])); // Output: 90 (only two numbers)
+console.log('*******************************************');
+
+// ************************** Nr 149 ***********************************
+
+// Check if a String is a Palindrome
+// Write a function that checks if a given string is a palindrome (reads the same forward and backward). Ignore case and spaces.
+
+function isPalindrome5(str) {
+  const sanitizedStr = str.toLowerCase().replace(/[^a-z0-9]/g, '');
+  return sanitizedStr === [...sanitizedStr].reverse().join('');
+}
+
+console.log(isPalindrome5('Racecar')); // Output: true
+console.log(isPalindrome5('hello')); // Output: false
+console.log(isPalindrome5('A man a plan a canal Panama')); // Output: true
+console.log('*******************************************');
+
+// *************************** Nr 150 **********************************
+
+// Count the Number of Vowels in a String
+// Write a function that takes a string and returns the number of vowels (a, e, i, o, u) in it.
+
+function countVowels2(str) {
+  // const vowels = 'aeiouAEIOU';
+  // let vowelsCount = 0;
+  // for (let char of str) {
+  //   if (vowels.includes(char)) {
+  //     vowelsCount++;
+  //   }
+  // }
+  // return vowelsCount;
+
+  return (str.match(/[aeiou]/gi) || []).length;
+}
+
+console.log(countVowels2('hello world')); // Output: 3
+console.log(countVowels2('javascript')); // Output: 3
+console.log(countVowels2('AEIOU')); // Output: 5
+console.log(countVowels2('dsf')); // Output: 0
+console.log('****************************************');

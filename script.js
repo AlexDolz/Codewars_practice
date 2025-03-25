@@ -3410,3 +3410,29 @@ console.log(countVowels2('javascript')); // Output: 3
 console.log(countVowels2('AEIOU')); // Output: 5
 console.log(countVowels2('dsf')); // Output: 0
 console.log('****************************************');
+// ***************************** Nr 151 *******************************
+
+// Find the Intersection of Two Arrays
+// Write a function that returns an array containing the common elements of two given arrays.
+// Do not use built-in methods like filter or includes.
+
+function arrayIntersection3(arr1, arr2) {
+  const uniqSet = new Set(arr1);
+  let common = [];
+
+  for (let elem of arr2) {
+    if (uniqSet.has(elem)) {
+      common.push(elem);
+    }
+  }
+  return common;
+}
+
+console.log(arrayIntersection3([1, 2, 3, 4], [3, 4, 5, 6])); // Output: [3, 4]
+console.log(
+  arrayIntersection3(
+    ['apple', 'banana', 'cherry'],
+    ['banana', 'cherry', 'date']
+  )
+); // Output: ['banana', 'cherry']
+console.log('***********************************');

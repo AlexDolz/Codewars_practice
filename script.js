@@ -3436,3 +3436,93 @@ console.log(
   )
 ); // Output: ['banana', 'cherry']
 console.log('***********************************');
+
+// *************************** Nr 152 **********************************
+
+// Remove Duplicates from an Array
+// Write a function that removes duplicate values from an array while maintaining the original order.
+
+function removeDuplicates6(arr) {
+  return [...new Set(arr)];
+}
+
+console.log(removeDuplicates6([1, 2, 2, 3, 4, 4, 5])); // Output: [1, 2, 3, 4, 5]
+
+console.log(removeDuplicates6(['apple', 'banana', 'apple', 'orange'])); // Output: ["apple", "banana", "orange"]
+console.log('**********************************');
+
+// **************************** Nr 153 ********************************
+
+// Count Occurrences of Each Word
+// Write a function that takes a string and returns an object where keys are words and values are their occurrences.
+
+function countWords(str) {
+  return str.split(' ').reduce((acc, word) => {
+    acc[word] = (acc[word] || 0) + 1;
+    return acc;
+  }, {});
+}
+
+console.log(countWords('apple banana apple orange banana apple'));
+// Output: { apple: 3, banana: 2, orange: 1 }
+console.log(countWords('hello world hello'));
+// Output: { hello: 2, world: 1 }
+console.log('**********************************************');
+// **************************** Nr 154 *********************************
+
+// Reverse Words in a Sentence
+// Write a function that reverses the order of words in a given sentence.
+
+function reverseWords4(str) {
+  return str.split(' ').reverse().join(' ');
+}
+
+console.log(reverseWords4('hello world'));
+// Output: "world hello"
+console.log(reverseWords4('JavaScript is awesome'));
+// Output: "awesome is JavaScript"
+
+console.log('***************************************');
+
+// ************************ Nr 155 ************************************
+
+// Validate a Password
+// Write a function that checks if a password is strong. A strong password must:
+
+// Be at least 8 characters long
+// Contain at least one uppercase letter
+// Contain at least one lowercase letter
+// Contain at least one digit
+// Contain at least one special character (@, #, $, etc.)
+
+function isStrongPassword3(password) {
+  if (password.length < 8) return false;
+
+  const hasUppercase = /[A-Z]/.test(password);
+  const hasLowercase = /[a-z]/.test(password);
+  const hasDigit = /\d/.test(password);
+  const hasSpecialChar = /\W/.test(password);
+
+  return hasUppercase && hasLowercase && hasDigit && hasSpecialChar;
+}
+
+console.log(isStrongPassword3('Pass@123')); // Output: true
+console.log(isStrongPassword3('weakpass')); // Output: false
+console.log('*****************************************');
+
+// *************************** Nr 156 **********************************
+
+// Find the Missing Number in an Array
+// Given an array of numbers from 1 to n+1 with one number missing, find the missing number.
+
+function findMissingNumber5(arr) {
+  const maxNum = Math.max(...arr);
+  const totalSum = (maxNum * (maxNum + 1)) / 2;
+  const arrSum = arr.reduce((acc, cur) => acc + cur, 0);
+
+  return totalSum - arrSum;
+}
+
+console.log(findMissingNumber([1, 2, 4, 5])); // Output: 3
+console.log(findMissingNumber([3, 7, 1, 2, 8, 4, 5])); // Output: 6
+console.log('*************************************************');

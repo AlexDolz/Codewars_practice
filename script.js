@@ -3526,3 +3526,56 @@ function findMissingNumber5(arr) {
 console.log(findMissingNumber([1, 2, 4, 5])); // Output: 3
 console.log(findMissingNumber([3, 7, 1, 2, 8, 4, 5])); // Output: 6
 console.log('*************************************************');
+
+// ********************************************************************
+
+// Capitalize First Letter of Each Word
+// Write a function that takes a sentence as input and returns the same sentence with the first letter of each word capitalized.
+
+function capitalizeWords2(str) {
+  return str
+    .split(' ')
+    .map(word => word[0].toUpperCase() + word.slice(1))
+    .join(' ');
+}
+
+console.log(capitalizeWords2('hello world'));
+console.log('*****************************');
+
+// *********************************************************************
+
+// Find Common Elements in Three Arrays
+// Write a function that takes three arrays and returns an array containing only the elements that are common to all three arrays.
+
+function commonElements(arr1, arr2, arr3) {
+  let common = [];
+
+  for (const elem of arr1) {
+    if (arr2.includes(elem) && arr3.includes(elem)) {
+      common.push(elem);
+    }
+  }
+  return common;
+}
+
+console.log(commonElements([1, 2, 3], [2, 3, 4], [3, 4, 5]));
+console.log('************************************');
+
+// *********************************************************************
+
+// Convert a String to Camel Case
+// Write a function that converts a string with spaces, underscores, or dashes into camelCase.
+
+function toCamelCase(str) {
+  return str
+    .replace(/[_-]/g, ' ')
+    .toLowerCase()
+    .split(' ')
+    .map((word, index) =>
+      index === 0 ? word : word[0].toUpperCase() + word.slice(1)
+    )
+    .join('');
+}
+
+console.log(toCamelCase('hello_world_test-case'));
+console.log('***************************************************');
